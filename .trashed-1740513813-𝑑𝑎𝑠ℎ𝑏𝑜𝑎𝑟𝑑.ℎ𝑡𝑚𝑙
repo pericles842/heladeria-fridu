@@ -1,0 +1,47 @@
+<!<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-XA-Comptible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administrador</title>
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: ;
+        }
+    </style>
+    <body>
+        <nav class="nav">
+            <ul class="list">
+                
+                <li class="list__item">
+                    <div class="list__button">
+                        <img src="" alt="" />
+                        <a href="#" class="nav__link">PERFIL</a>
+                    </div>
+                </li>
+                
+                <li class="list__item">
+                    <div class="list__button list__button--click">
+                        <img src="" alt="" />
+                        <a href="#" class="nav__link">INVENTARIO</a>
+                        <img src="/storage/emulated/0/heladeria_Fridu 2/bx-caret-right.svg" alt="" />
+                    </div>
+                </li>
+                
+            </ul>
+        </nav>
+        
+        
+        <script>
+            
+        </script>
+    </body>
+</html>

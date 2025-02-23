@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helados Divinos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4e0beb, #5c04eb);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card-helado {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card-helado:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-helado img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h2 {
+            color: #3500f7;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .precio {
+            font-size: 1.5rem;
+            color: #3002fc;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .btn-comprar, .btn-guardar, .btn-eliminar {
+            background-color: #1708eb;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            margin-right: 0.5rem;
+        }
+
+        .btn-comprar:hover, .btn-guardar:hover, .btn-eliminar:hover {
+            background-color: #1472ff;
+        }
+
+        .grid-helados {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-helados {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .edit-mode input, .edit-mode textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4e0beb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-flotante:hover {
+            background-color: #5c04eb;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Helados Divinos</h1>
+        <p>Los mejores helados artesanales de la ciudad</p>
+    </header>
+
+    <main class="container">
+        <div class="grid-helados">
+            <div class="card-helado">
+                <img src="https://scontent-mia3-3.xx.fbcdn.net/v/t39.30808-6/470599950_442672372230436_1123921913685850083_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=68wmyyg1rVcQ7kNvgHdCjwW&_nc_oc=Adgnau9lTbefgbpnxtIbyPPjJUEjB5EseGG2v2ZndHLE54d_gud4K-vqMOass7jdmLY&_nc_zt=23&_nc_ht=scontent-mia3-3.xx&_nc_gid=AiYoe2qRuu5qziT9VenaP7r&oh=00_AYCxIsKeX8uj5SpEDIIit-fW9BxgaVTQtiJVzBPDMTIQ_Q&oe=67A95B01" alt="Helado de vainilla">
+                <div class="card-content">
+                    <h2>Helado de Vainilla</h2>
+                    <p>Elaborado con vainilla natural de Madagascar, crema fresca y un toque de azúcar morena.</p>
+                    <div class="precio">$4.99</div>
+                    <button class="btn-comprar" onclick="editarHelado(this)">Editar</button>
+                    <button class="btn-guardar" onclick="guardarHelado(this)" style="display: none;">Guardar</button>
+                    <button class="btn-eliminar" onclick="eliminarHelado(this)" style="display: none;">Eliminar</button>
+                </div>
+            </div>
+
+            <div class="card-helado">
+                <img src="https://scontent.fmrd1-1.fna.fbcdn.net/v/t39.30808-6/469815989_436659019498438_719995643191470678_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=BFiaWPy-fO4Q7kNvgG9XouI&_nc_oc=AdjGYrOYLeTj9wJ1SX08KuOsPA-1QbEzdylPfL-rdFCVnTAucfUe4pmuzI5KLZPgNqk&_nc_zt=23&_nc_ht=scontent.fmrd1-1.fna&_nc_gid=ALy06Nt-2q-7CABMW53ROAD&oh=00_AYBGuFxAzRx26akd_caeLgaLhDCHIeJaNFEWHxN56K_FOQ&oe=67A9675E" alt="Helado de chocolate">
+                <div class="card-content">
+                    <h2>Helado de Chocolate</h2>
+                    <p>Chocolate belga de alta calidad, intenso y rico, perfecto para los amantes del chocolate.</p>
+                    <div class="precio">$5.49</div>
+                    <button class="btn-comprar" onclick="editarHelado(this)">Editar</button>
+                    <button class="btn-guardar" onclick="guardarHelado(this)" style="display: none;">Guardar</button>
+                    <button class="btn-eliminar" onclick="eliminarHelado(this)" style="display: none;">Eliminar</button>
+                </div>
+            </div>
+
+            <div class="card-helado">
+                <img src="https://scontent.fmrd1-1.fna.fbcdn.net/v/t39.30808-6/469893980_437242126106794_1624919561788163889_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ljdzygc3HYMQ7kNvgGKBKsc&_nc_oc=Adh5uH3D8XQc3uBZVE69s-Y2jSqpH0Ea1LIOdHyyGX15gukv45ZVsyIR3ssDWoMOA2c&_nc_zt=23&_nc_ht=scontent.fmrd1-1.fna&_nc_gid=AAJk13KAx8yHI0kxqVPMGxl&oh=00_AYDe5GzlC9AaPcJtU0p0FSNm7zR-xB3o6zMbXaQiPPTQSg&oe=67A9653D" alt="Helado de fresa">
+                <div class="card-content">
+                    <h2>Helado de Fresa</h2>
+                    <p>Fresas frescas de temporada, azúcar natural y un toque de limón.</p>
+                    <div class="precio">$4.99</div>
+                    <button class="btn-comprar" onclick="editarHelado(this)">Editar</button>
+                    <button class="btn-guardar" onclick="guardarHelado(this)" style="display: none;">Guardar</button>
+                    <button class="btn-eliminar" onclick="eliminarHelado(this)" style="display: none;">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="btn-flotante" onclick="agregarHelado()">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <script>
+        function editarHelado(button) {
+            const card = button.closest('.card-helado');
+            const content = card.querySelector('.card-content');
+            const titulo = content.querySelector('h2').innerText;
+            const descripcion = content.querySelector('p').innerText;
+            const precio = content.querySelector('.precio').innerText;
+
+            content.innerHTML = `
+                <input type="text" value="${titulo}" class="edit-titulo">
+                <textarea class="edit-descripcion">${descripcion}</textarea>
+                <input type="text" value="${precio}" class="edit-precio">
+                <button class="btn-guardar" onclick="guardarHelado(this)">Guardar</button>
+                <button class="btn-eliminar" onclick="eliminarHelado(this)">Eliminar</button>
+            `;
+
+            button.style.display = 'none';
+        }
+
+        function guardarHelado(button) {
+            const card = button.closest('.card-helado');
+            const content = card.querySelector('.card-content');
+            const titulo = content.querySelector('.edit-titulo').value;
+            const descripcion = content.querySelector('.edit-descripcion').value;
+            const precio = content.querySelector('.edit-precio').value;
+
+            content.innerHTML = `
+                <h2>${titulo}</h2>
+                <p>${descripcion}</p>
+                <div class="precio">${precio}</div>
+                <button class="btn-comprar" onclick="editarHelado(this)">Editar</button>
+                <button class="btn-guardar" onclick="guardarHelado(this)" style="display: none;">Guardar</button>
+                <button class="btn-eliminar" onclick="eliminarHelado(this)" style="display: none;">Eliminar</button>
+            `;
+        }
+
+        function eliminarHelado(button) {
+            const card = button.closest('.card-helado');
+            card.remove();
+        }
+
+        function agregarHelado() {
+            const gridHelados = document.querySelector('.grid-helados');
+            const nuevoHelado = document.createElement('div');
+            nuevoHelado.className = 'card-helado';
+            nuevoHelado.innerHTML = `
+                <img src="https://via.placeholder.com/300" alt="Nuevo Helado">
+                <div class="card-content">
+                    <h2>Nuevo Helado</h2>
+                    <p>Descripción del nuevo helado.</p>
+                    <div class="precio">$0.00</div>
+                    <button class="btn-comprar" onclick="editarHelado(this)">Editar</button>
+                    <button class="btn-guardar" onclick="guardarHelado(this)" style="display: none;">Guardar</button>
+                    <button class="btn-eliminar" onclick="eliminarHelado(this)" style="display: none;">Eliminar</button>
+                </div>
+            `;
+            gridHelados.appendChild(nuevoHelado);
+        }
+    </script>
+</body>
+</html>

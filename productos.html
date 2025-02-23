@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+}
+
+h1, h2{
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+modal button{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.closeBtn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>Productos</h1>
+        <button id="addProductBtn">Añadir Producto</button> 
+         <a href="adminitrador.html"><button type="submit">Volver</button></a>     
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table><br><br>
+
+       
+    </div>
+    <!-- Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <h2>Formulario de Producto</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <label for="productName">Nombre:</label>
+                <input type="text" id="productName" required>
+                <label for="productDescription">Descripción:</label>
+                <textarea id="productDescription" required></textarea>
+                <label for="productPrice">Precio:</label>
+                <input type="number" id="productPrice" required>
+                
+                <button type="submit">Guardar</button>
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const addProductBtn = document.getElementById('addProductBtn');
+    const productModal = document.getElementById('productModal');
+    const closeBtn = document.getElementsByClassName('closeBtn')[0];
+    const productForm = document.getElementById('productForm');
+    const productTable = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+    let products = [];
+    let editIndex = -1;
+
+    addProductBtn.addEventListener('click', function() {
+        productModal.style.display = 'block';
+        productForm.reset();
+        editIndex = -1;
+    });
+
+    closeBtn.addEventListener('click', function() {
+        productModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == productModal) {
+            productModal.style.display = 'none';
+        }
+    });
+
+    productForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const id = document.getElementById('productId').value;
+        const name = document.getElementById('productName').value;
+        const description = document.getElementById('productDescription').value;
+        const price = document.getElementById('productPrice').value;
+
+        const product = { id, name, description, price };
+
+        if (editIndex === -1) {
+            products.push(product);
+        } else {
+            products[editIndex] = product;
+        }
+
+        renderTable();
+        productModal.style.display = 'none';
+    });
+
+    function renderTable() {
+        productTable.innerHTML = '';
+        products.forEach((product, index) => {
+            const row = productTable.insertRow();
+            row.insertCell(0).textContent = product.name;
+            row.insertCell(1).textContent = product.description;
+            row.insertCell(2).textContent = product.price;
+
+            const actionsCell = row.insertCell(3);
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'Editar';
+            editBtn.addEventListener('click', function() {
+                editIndex = index;
+                document.getElementById('productId').value = product.id;
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productDescription').value = product.description;
+                document.getElementById('productPrice').value = product.price;
+                productModal.style.display = 'block';
+            });
+            actionsCell.appendChild(editBtn);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Eliminar';
+            deleteBtn.addEventListener('click', function() {
+                products.splice(index, 1);
+                renderTable();
+            });
+            actionsCell.appendChild(deleteBtn);
+        });
+    }
+});
+    </script>
+</body>
+</html>

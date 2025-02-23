@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Gestión de Despacho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>DESPACHO</h1>
+        <form id="despachoForm">
+            <!-- Encabezado -->
+            <label for="empresa">Nombre de la Empresa:</label>
+            <input type="text" id="empresa" name="empresa" required>
+
+            <label for="fecha">Fecha del Despacho:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="numDespacho">Número de Despacho:</label>
+            <input type="text" id="numDespacho" name="numDespacho" required>
+
+            <!-- Datos del Remitente -->
+            <h2>Datos del Remitente</h2>
+            <label for="remitenteNombre">Nombre:</label>
+            <input type="text" id="remitenteNombre" name="remitenteNombre" required>
+
+            <label for="remitenteDireccion">Dirección:</label>
+            <input type="text" id="remitenteDireccion" name="remitenteDireccion" required>
+
+            <label for="remitenteTelefono">Teléfono:</label>
+            <input type="text" id="remitenteTelefono" name="remitenteTelefono" required>
+
+            <label for="remitenteEmail">Correo Electrónico:</label>
+            <input type="email" id="remitenteEmail" name="remitenteEmail" required>
+
+            <!-- Datos del Destinatario -->
+            <h2>Datos del Destinatario</h2>
+            <label for="destinatarioNombre">Nombre:</label>
+            <input type="text" id="destinatarioNombre" name="destinatarioNombre" required>
+
+            <label for="destinatarioDireccion">Dirección:</label>
+            <input type="text" id="destinatarioDireccion" name="destinatarioDireccion" required>
+
+            <label for="destinatarioTelefono">Teléfono:</label>
+            <input type="text" id="destinatarioTelefono" name="destinatarioTelefono" required>
+
+            <label for="destinatarioEmail">Correo Electrónico:</label>
+            <input type="email" id="destinatarioEmail" name="destinatarioEmail" required>
+
+            <input type="submit" value="Enviar">
+            
+        </form>
+                
+        <a href="adminitrador.html"><button type="submit" value="Volver">Volver</button></a>    
+
+    </div>
+    <script>
+        document.getElementById('despachoForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const empresa = document.getElementById('empresa').value;
+    const fecha = document.getElementById('fecha').value;
+    const numDespacho = document.getElementById('numDespacho').value;
+    const remitenteNombre = document.getElementById('remitenteNombre').value;
+    const remitenteDireccion = document.getElementById('remitenteDireccion').value;
+    const remitenteTelefono = document.getElementById('remitenteTelefono').value;
+    const remitenteEmail = document.getElementById('remitenteEmail').value;
+    const destinatarioNombre = document.getElementById('destinatarioNombre').value;
+    const destinatarioDireccion = document.getElementById('destinatarioDireccion').value;
+    const destinatarioTelefono = document.getElementById('destinatarioTelefono').value;
+    const destinatarioEmail = document.getElementById('destinatarioEmail').value;
+    const articulos = document.getElementById('articulos').value;
+    const cantidad = document.getElementById('cantidad').value;
+    const peso = document.getElementById('peso').value;
+    const dimensiones = document.getElementById('dimensiones').value;
+
+    // Procesar los datos aquí
+    console.log(`Empresa: ${empresa}, Fecha: ${fecha}, Número de Despacho: ${numDespacho}`);
+    console.log(`Remitente: ${remitenteNombre}, ${remitenteDireccion}, ${remitenteTelefono}, ${remitenteEmail}`);
+    console.log(`Destinatario: ${destinatarioNombre}, ${destinatarioDireccion}, ${destinatarioTelefono}, ${destinatarioEmail}`);
+    console.log(`Detalles: Artículos - ${articulos}, Cantidad - ${cantidad}, Peso - ${peso}, Dimensiones - ${dimensiones}`);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-XA-Comptible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administrador</title>
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #EAEBEF;
+        }
+        .nav{
+            width: 300px;
+        }
+        .nav__link{
+            color: #303440;
+            display: block;
+            padding: 15px 0;
+            text-decoration: none;
+        }
+        .nav__link--inside{
+            border-radius: 6px;
+            padding-left: 20px;
+            text-align: left;
+        }
+        .nav__link--inside:hover{
+            background: #F6F8FA;
+        }
+        .list{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 0 16px 16px 0;
+            background: white;
+        }
+        .list__item{
+            list-style: none;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+        .list__item--click{
+            cursor: pointer;
+        }
+        .list__button{
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            width: 70%;
+            margin: 0 auto;
+        }
+        .arrow .list__arrow{
+            transform: rotate(90deg);
+        }
+        .lis__arrow{
+            margin-left: auto;
+            transition: transform .3s;
+        }
+        .list__show{
+            width: 80%;
+            margin-left: auto;
+            border-left: 2px solid #303440;
+            list-style: none;
+            transition: height 0.4s;
+            height: 0;
+        }
+    </style>
+    <body>
+        <nav class="nav">
+            <ul class="list">
+                
+                <li class="list__item">
+                    <div class="list__button">
+                        
+                        <img src="bx-user-circle.svg" alt="" />
+                        
+                        <a href="#" class="nav__link">PERFIL</a>
+                    </div>
+                </li>
+                
+                <li class="list__item list__item--click">
+                    <div class="list__button list__button--click">
+                        
+                        <img src="" alt="" />
+                        <a href="#" class="nav__link">INVENTARIO</a>
+                        <img src="bx-caret-right.svg" alt="" />
+                    </div>
+                    
+                    <ul class="list__show">
+                        
+                        <li class="list__show">
+                            <a href="#" class="nav__link nav__link--inside">PRODUCTO</a>
+                        </li>
+                        
+                        <li class="list__show">
+                            <a href="#" class="nav__link nav__link--inside">COMPRA</a>
+                        </li>
+                        
+                        <li class="list__show">
+                            <a href="#" class="nav__link nav__link--inside">VENTA</a>
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+        
+        
+        <script>
+            let listElements = document.querySelectorAll('.list__button--click');
+            listElements.forEach(listElement => {
+                listElement.addEventListener('click', ()=>{
+                    
+                    listElement.classList.toggle('arrow');
+                    
+                    let height = 0;
+                    let menu = listElement.nextElementSibling;
+                    if(menu.clientHeight == "0"){
+                        height=menu.scrollheight
+                    }
+                    menu.style.height = `${height}px`;
+                })
+            });
+        </script>
+    </body>
+</html>

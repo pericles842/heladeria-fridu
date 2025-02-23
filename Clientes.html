@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Registro de Clientes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Registro de Clientes</h2>
+        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalCliente">Agregar Cliente</button>
+        
+        <table class="table mt-3 text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaClientes">
+                <!-- Los clientes se agregarán aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Agregar Cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCliente">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <input type="hidden" id="clienteId">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        let clientes = [];
+let editIndex = -1;
+
+document.getElementById('formCliente').addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+
+    if (editIndex === -1) {
+        // Crear nuevo cliente
+        const nuevoCliente = { id: clientes.length + 1, nombre, email };
+        clientes.push(nuevoCliente);
+    } else {
+        // Actualizar cliente existente
+        clientes[editIndex].nombre = nombre;
+        clientes[editIndex].email = email;
+        editIndex = -1;
+    }
+
+    document.getElementById('formCliente').reset();
+    $('#modalCliente').modal('hide');
+    renderClientes();
+});
+
+function renderClientes() {
+    const tablaClientes = document.getElementById('tablaClientes');
+    tablaClientes.innerHTML = '';
+
+    clientes.forEach((cliente, index) => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${cliente.id}</td>
+            <td>${cliente.nombre}</td>
+            <td>${cliente.email}</td>
+            <td>
+                <button class="btn btn-warning" onclick="editarCliente(${index})">Editar</button>
+                <button class="btn btn-danger" onclick="eliminarCliente(${index})">Eliminar</button>
+            </td>
+        `;
+        tablaClientes.appendChild(fila);
+    });
+}
+
+function editarCliente(index) {
+    editIndex = index;
+    const cliente = clientes[index];
+
+    document.getElementById('nombre').value = cliente.nombre;
+    document.getElementById('email').value = cliente.email;
+    document.getElementById('clienteId').value = cliente.id;
+
+    $('#modalCliente').modal('show');
+}
+
+function eliminarCliente(index) {
+    clientes.splice(index, 1);
+    renderClientes();
+}
+
+    </script>
+</body>
+</html>

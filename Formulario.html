@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	 <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    form-family: 'Montserrat', sans-serif ;
+}
+
+body{
+    background-color: #F4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    
+} 
+
+.form-container{ 
+    background-color:  white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+.input-group{
+    margin-bottom: 15px;
+}
+
+h2{
+    margin: 0 auto;
+    width: fit-content;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: border 0.3s;
+}
+
+input:focus{
+    border: 1px solid #007bff;
+}
+
+button{
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover{
+    background-color: #0056b3;
+}
+
+.links{
+    margin-top: 10px;
+}
+
+.links a{
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.links a:hover{
+    text-decoration: unerline;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    
+    to{
+        opacity: 1;
+    }
+}
+
+</style>
+<body>
+  <div class="form-container">
+
+    <form method="Post" id="Formulario" class="Formulario" action="php/procesar.php" onsubmit="returnvalidateForm()">
+         
+        <h2>LOGIN</h2>
+        <div class="input-group">
+            <label for="nombre"></label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required />
+        </div>
+
+        <div class="input-group">
+            <label for="contraseña"></label>
+            <input type="password" id="Contraseña" name="contraseña" placeholder="Contraseña" required />
+        </div>
+        
+        <a ><button type="submit">INICIA SECCION</button></a>
+
+        <div class="links">
+            <a href="olvidar_contrasena.php">Olvidaste la Contraseña</a>
+            <a href="index.html">Volver</a>
+        </div>
+        
+    </form>
+
+  </div>
+      <script>
+          function validateForm(){
+    const nombre = document.getElementId('nombre').value;
+    const contraseña = document.getElementId('contraseña').value;
+}
+
+//validación del nombre
+
+if (nombre.trim() === ''){
+    alert ('Por favor ingresa tu nombre.');
+    return false; 
+}
+
+//validación de la contraseña
+
+    const contraseñaPatterm = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (contraseñaPattern.test(contraseña)){
+        alert('Por favor, ingresa tu contraseña.');
+             return false; 
+    }
+
+//permitir el envio del formulario
+
+    return true;
+
+      </script>
+</body>
+</html>

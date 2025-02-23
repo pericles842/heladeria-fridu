@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Proveedor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+    display: flex:
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+h1, h2 {
+    text-align: center;
+}
+form {
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+label, input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 7px 20px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 8px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+</style>
+<body>
+    
+    <form id="provider-form">
+        <h2>Formulario de Proveedor</h2>
+        <label for="company">Nombre de la Compañía:</label>
+        <input type="text" id="company" name="company" required>
+        <h3 style="text-align:center;">PERSONA DE PERSONA</h3>        
+        <label for="first-name">Nombre:</label>
+        <input type="text" id="first-name" name="first-name" required> 
+        <label for="last-name">Apellido:</label>
+        <input type="text" id="last-name" name="last-name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Número de Teléfono:</label>
+        <input type="tel" id="phone" name="phone" required> 
+        <label for="address">Dirección:</label>
+        <input type="text" id="address" name="address" required>
+        <label for="city">Ciudad:</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="state">Estado/Provincia:</label>
+        <input type="text" id="state" name="state" required>
+        
+        <label for="rif">RIF:</label>
+        <input type="text" id="rif" name="rif" required>
+        
+        <button type="button" class="" onclick="submitForm()">Enviar</button>
+        <button type="button" class="" onclick="openModal()">Consultar</button>
+        <a href="adminitrador.html"><button type="button">Volver</button></a>
+    </form>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Planilla de Registro de Proveedores</h2>
+            <table id="providers-table">
+                <thead>
+                    <tr>
+                        <th>Nombre de la Compañía</th>
+                        <th>Título del Personal de Contacto</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Número de Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Ciudad</th>
+                        <th>Estado/Provincia</th>
+                        <th>RIF</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            
+            <div class="pagination">
+                <button onclick="previousPage()">Anterior</button>
+                <span id="page-info"></span>
+                <button onclick="nextPage()">Siguiente</button>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    let providers = [];
+    let currentPage = 1;
+    const itemsPerPage = 5;
+
+    function renderTable() {
+        const tableBody = document.querySelector("#providers-table tbody");
+        tableBody.innerHTML = "";
+        
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const paginatedProviders = providers.slice(start, end);
+        
+        paginatedProviders.forEach((provider, index) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${provider.company}</td>
+                <td>${provider.contactTitle}</td>
+                <td>${provider.firstName}</td>
+                <td>${provider.lastName}</td>
+                <td>${provider.email}</td>
+                <td>${provider.phone}</td>
+                <td>${provider.address}</td>
+                <td>${provider.city}</td>
+                <td>${provider.state}</td>
+                <td>${provider.rif}</td>
+                <td>
+                    <button class="crud-button" onclick="editProvider(${index + start})">Editar</button>
+                    <button class="crud-button" onclick="deleteProvider(${index + start})">Eliminar</button>
+                    <button class="crud-button" onclick="downloadPDF(${index + start})">Descargar PDF</button>
+                </td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+
+        document.getElementById("page-info").textContent = `Página ${currentPage} de ${Math.ceil(providers.length / itemsPerPage)}`;
+    }
+
+    window.submitForm = function() {
+        const form = document.getElementById("provider-form");
+
+        const provider = {
+            company: form.company.value,
+            contactTitle: form["contact-title"].value,
+            firstName: form["first-name"].value,
+            lastName: form["last-name"].value,
+            email: form.email.value,
+            phone: form.phone.value,
+            address: form.address.value,
+            city: form.city.value,
+            state: form.state.value,
+            rif: form.rif.value
+        };
+
+        providers.push(provider);
+        renderTable();
+        form.reset();
+    };
+
+    window.editProvider = function(index) {
+        const form = document.getElementById("provider-form");
+        const provider = providers[index];
+
+        form.company.value = provider.company;
+        form["contact-title"].value = provider.contactTitle;
+        form["first-name"].value = provider.firstName;
+        form["last-name"].value = provider.lastName;
+        form.email.value = provider.email;
+        form.phone.value = provider.phone;
+        form.address.value = provider.address;
+        form.city.value = provider.city;
+        form.state.value = provider.state;
+        form.rif.value = provider.rif;
+
+        providers.splice(index, 1);
+        renderTable();
+    };
+
+    window.deleteProvider = function(index) {
+        providers.splice(index, 1);
+        renderTable();
+    };
+
+    window.downloadPDF = function(index) {
+        const provider = providers[index];
+        const doc = new jsPDF();
+
+        doc.text(`Nombre de la Compañía: ${provider.company}`, 10, 10);
+        doc.text(`Título del Personal de Contacto: ${provider.contactTitle}`, 10, 20);
+        doc.text(`Nombre: ${provider.firstName}`, 10, 30);
+        doc.text(`Apellido: ${provider.lastName}`, 10, 40);
+        doc[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/ru7an/ProjectDocumentManagementSystem/tree/1177bf09a7bf81f4906abf0e69f0ed6e770322f1/Pariyojana%2FProject-I%2Ftopbar.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Ambytripathi/amby/tree/c628cae00691835860aa0a35a6f5750058a8bf2b/fuel%2Fapplication%2Fcache%2Fdwoo%2Fcompiled%2F25ee5b8a57263af2904d8671d7703303.d17.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/DrakenWan/Vtweet/tree/c409be99b065e7c4a5426b09cf40b5f5f9dc6f8e/1%2FCampus.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "3")
+    </script>
+</body>
+</html>
