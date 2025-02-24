@@ -1,9 +1,9 @@
-<?php require_once('./php/header.php'); ?>
+<?php require_once('../server/header.php'); ?>
 
 <body>
     <div class="form-container main-position">
 
-        <form method="Post" id="Formulario" class="Formulario" action="php/procesar.php" onsubmit="returnvalidateForm()">
+        <form method="Post" id="Formulario" class="Formulario" action="../server/api/auth/authentication.php" onsubmit="returnvalidateForm()">
 
             <h2 class="text-center">LOGIN</h2>
             <div>
@@ -16,11 +16,11 @@
                 <input type="password" id="Contraseña" name="contraseña" placeholder="Contraseña" required />
             </div>
 
-            <button class="primary-button" type="submit">INICIA SECCIÓN</button>
+            <button class="primary-button" type="submit">Iniciar Session</button>
 
             <div class="d-flex gap-2 justify-content-between">
-                <a class="links" href="olvidar_contrasena.php">Olvidaste la Contraseña</a>
-                <a class="links" href="index.html">Volver</a>
+                <a class="links" >Olvidaste la Contraseña</a>
+                <a class="links" href="../index.php">Volver</a>
             </div>
 
         </form>
@@ -52,5 +52,3 @@
         return true;
     </script>
 </body>
-
-</html>

@@ -281,8 +281,11 @@ a:hover {
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    outline: none;
+    text-decoration: none;
 }
+
+a{
+    text-decoration: none;}
 
 .btns:hover {
     color: #E44E8A;

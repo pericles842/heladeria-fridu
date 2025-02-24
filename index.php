@@ -1,35 +1,45 @@
-<?php require_once('./php/header.php'); ?>
-<!-- ESTUYLOS DE LA WEB -->
-<link rel="stylesheet" href="style.css">
+<?php require_once('./server/header.php'); ?>
 
- 
-<div class="navbar" id="navbar">
-<nav class="navbar navbar-expand-lg bg-body-tertiary ">
-  <div class="container-fluid ">
-    <div class="logo">
-      <img src="./img/logo.jpg" alt="">
+<!-- ESTUYLOS DE LA WEB IMPORTANTE NO TOCAR LA RUTA-->
+<link rel="stylesheet" href="./assets/styles/style.css">
+
+
+<div id="navbar">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid ">
+      <div class="logo">
+        <img src="./img/logo.jpg" alt="">
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#producto">Productos</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="#sobre">Sobre nosotros</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link " href="#porqueescogernos">¿Por que escogernosnos?</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="#contacto">Contactanos</a>
+          </li>
+
+        </ul>
+        <a class="btns" href="./views/login.php"> Inicia Sección </a>
+      </div>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Productos</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link disabled">Sobre nosotros</a>
-        </li>
-
-      </ul>
-      <a class="btns" href="formulario.php"> Inicia Sección </a>
-    </div>
-  </div>
-</nav>
+  </nav>
   <!-- <div class="menu" id="menu">
         <a data-aos="fade-up" data-aos-duration="800" href="#home">Home</a>
         <a data-aos="fade-up" data-aos-duration="900" href="#producto">Productos</a>
@@ -268,7 +278,7 @@
   </div>
 </div>
 
-<?php require_once('./php/footer.php'); ?>
+<?php require_once('./server/footer.php'); ?>
 
 </body>
 
