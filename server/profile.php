@@ -1,4 +1,4 @@
-<div class="bg-primary w-100 d-flex justify-content-end p-3">
+<div class="bg-primary w-100 d-flex justify-content-end  shadow rounded-1 rounded-top-0" style="padding: 7px;">
 
     <div class="dropdown">
         <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
