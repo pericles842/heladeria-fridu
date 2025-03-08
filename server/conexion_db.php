@@ -2,7 +2,7 @@
 const DB_HOST = 'localhost';
 const DB_USER = 'root';
 const DB_PASS = '';
-const DB_NAME = 'usuarios_db';
+const DB_NAME = 'heladería_fridu';
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
