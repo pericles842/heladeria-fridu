@@ -1,0 +1,156 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arials, sans-serif;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #111;
+	width: 100%;
+	overflow: hidden;
+}
+.ring{
+	position: relative;
+	width: 700px;
+	height: 700px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.login{
+	position: absolute;
+	width: 400px;
+	height: 200%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+}
+.login h2{
+	font-size: 2em;
+	color: #fff;
+}
+.login .inputBx{
+	position: relative;
+	width: 100%;
+}
+
+.login .inputBx input{
+	position: relative;
+	width: 100%;
+	padding: 12px 20px;
+	background: transparent;
+	border: 2px solid #fff;
+	border-radius: 40px;
+	font-size: 1.2em;
+	color: #fff;
+	box-shadow: none;
+	outline: none;
+}
+.login .inputBx input[type="submit"]{
+	width: 100%;
+	background: #0078ff;
+	background: linear-gradient(45deg, #ff355a, #fff172);
+	border: none;
+	cursor: pointer;
+}
+.bg-background-gradient{
+	background: linear-gradient(45deg, #ff355a, #fff172);
+}
+.login .inputBx input::placeholder{
+	color: rgba(256, 255, 255, 0.75);
+}
+.login .links{
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+.login .links a{
+	color: #fff;
+	text-decoration: none;
+}
+.ring i{
+	position: absolute;
+	inset: 0;
+	border: 2px solid #fff;
+	transition: 0.5s;
+}
+.ring i:nth-child(1){
+	border-radius: 40% 65% 66% 39% / 42% 45% 57% 60%;
+	animation: animate 6s alinear infinites;
+}
+
+.ring i:nth-child(2){
+	border-radius: 42% 45% 57% 60% / 39% 63% 64% 38%;
+	animation: animate 4s alinear infinites;
+}
+
+.ring i:nth-child(3){
+	border-radius: 42% 45% 57% 60% /  39% 63% 64% 38%;
+	animation: animate2 10s alinear infinites;
+}
+
+.ring:hover i{
+	border: 6px solid var(--clr);
+	filter: drop-shadow(0 0 30px var(--clr));
+}
+
+/*Botonesde despliegue*/
+.dropdown{
+  display: inline-block;
+}
+  .dropdown .button{
+  	background-color: hsl(0, 0%, 80%);
+    color: white;
+    padding: 10px, 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .dropdown a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+  }
+  .dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: hsl(0, 0%, 95%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+  }
+  .dropdown:hover .content{
+    display: block;
+  }
+  .dropdown:hover  button{
+    background-color: hsl(0, 0%, 70%);
+  }
+  .dropdown a:hover {
+    background-color: hsl(0, 0%, 90%); 
+  }
+
+@keyframes animate{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes animate2{
+	0%{
+		transform: rotate(360deg);
+	}
+	100%{
+		transform: rotate(0deg);
+	}
+}

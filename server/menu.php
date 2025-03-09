@@ -18,7 +18,17 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(2)" href="#" class="nav-link  link-dark">
+      <a onclick="touchMenu(2)" href="#" class="nav-link link-dark">
+        <i class="bi bi-person-add"></i>
+        <svg class="bi bi-people-fill me-2" width="16" height="16">
+          <use xlink:href="#speedometer2"></use>
+        </svg>
+        Usuarios
+      </a>
+    </li>
+
+    <li>
+      <a onclick="touchMenu(3)" href="#" class="nav-link  link-dark">
         <i class="bi bi-person-add"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#speedometer2"></use>
@@ -28,7 +38,7 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(3)" href="#" class="nav-link  link-dark">
+      <a onclick="touchMenu(4)" href="#" class="nav-link  link-dark">
         <i class="bi bi-tags"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#table"></use>
@@ -38,7 +48,7 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(4)" href="#" class="nav-link link-dark">
+      <a onclick="touchMenu(5)" href="#" class="nav-link link-dark">
         <i class="bi bi-box-seam"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#grid"></use>
@@ -48,7 +58,7 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(5)" href="#" class="nav-link link-dark">
+      <a onclick="touchMenu(6)" href="#" class="nav-link link-dark">
         <i class="bi bi-boxes"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#people-circle"></use>
@@ -58,7 +68,7 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(6)" href="#" class="nav-link link-dark">
+      <a onclick="touchMenu(7)" href="#" class="nav-link link-dark">
         <i class="bi bi-bar-chart-fill"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#people-circle"></use>
@@ -68,7 +78,7 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(7)" href="#" class="nav-link link-dark">
+      <a onclick="touchMenu(8)" href="#" class="nav-link link-dark">
         <i class="bi bi-menu-button-wide-fill"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#people-circle"></use>
@@ -78,7 +88,7 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(8)" href="#" class="nav-link link-dark">
+      <a onclick="touchMenu(9)" href="#" class="nav-link link-dark">
         <i class="bi bi-truck"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#people-circle"></use>
@@ -88,7 +98,7 @@
     </li>
 
     <li>
-      <a onclick="touchMenu(9)" href="#" class="nav-link link-dark">
+      <a onclick="touchMenu(10)" href="#" class="nav-link link-dark">
         <i class="bi bi-folder2-open"></i>
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#people-circle"></use>
@@ -98,7 +108,7 @@
     </li>
   </ul>
   <hr>
-  <a onclick="touchMenu(10)" href="#" class="nav-link link-dark">
+  <a onclick="touchMenu(11)" href="#" class="nav-link link-dark">
     <i class="bi bi-box-arrow-left text-danger"></i>
     <span class="p-4">Salir</span>
   </a>

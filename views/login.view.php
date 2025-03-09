@@ -3,7 +3,7 @@
 <body>
     <div class="form-container main-position">
 
-        <form method="post" id="Formulario" class="Formulario" action="../server/api/auth/authentication.php" onsubmit="returnvalidateForm()">
+        <form method="Post" id="Formulario" class="Formulario" action="../server/api/auth/authentication.php" onsubmit="returnvalidateForm()">
 
             <h2 class="text-center">LOGIN</h2>
             <div>

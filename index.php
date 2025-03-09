@@ -3,7 +3,6 @@
 <!-- ESTUYLOS DE LA WEB IMPORTANTE NO TOCAR LA RUTA-->
 <link rel="stylesheet" href="./assets/styles/style.css">
 
-
 <div id="navbar">
   <nav class="navbar navbar-expand-lg bg-body-tertiary ">
     <div class="container-fluid ">
@@ -36,7 +35,7 @@
           </li>
 
         </ul>
-        <a class="btns" href="./views/login.php"> Inicia Sección </a>
+        <a class="btns" href="./views/login.view.php"> Inicia Sección </a>
       </div>
     </div>
   </nav>

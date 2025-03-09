@@ -12,7 +12,7 @@
       <?php require_once('../server/profile.php'); ?>
 
       <!-- CONTENEDOR DE LOS FORMULARIOS -->
-      <div id="forms" class="d-flex flex-column w-100 p-5 overflow-auto">
+      <div id="forms" class="d-flex flex-column w-100 h-100 p-5 overflow-auto " style="background-color:rgb(242, 242, 242);">
         <!-- AQUI SE VA A RENDERIZAR EL TEMPLATE -->
       </div>
     </div>
@@ -21,12 +21,15 @@
 
 
 <script>
+  window.addEventListener('load',()=>{
+    renderingTemplate('cargos');
+  })
   /**
    * Función para activar el menu
    * 
    */
   function touchMenu(index) {
-    files = ['', 'list_users', 'pagos_pendientes'];
+    files = ['', 'cargos', 'create_user'];
     const links = document.querySelectorAll('#menu a');
 
     links.forEach((link, i) => {

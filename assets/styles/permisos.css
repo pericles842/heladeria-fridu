@@ -1,0 +1,76 @@
+body{
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1.0));
+	background-size: cover;
+	background-position: center;
+}
+.container{
+	position: relative;
+	width: 100%;
+	max-width: 450px;
+	height: 530px;
+	background: transparent;
+	border-radius: 20px;
+	border: 2px solid rgba(257, 257, 257, .7);
+	backdrop-filter: blur(20px);
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.main-box{
+	padding: 50%;
+	width: 100%;
+}
+.main-box h1{
+	text-align: center;
+	font-size: 42px;
+	font-weight: 700;
+	color: #ffffff;
+}
+.input-box{
+	position: relative;
+	height: 52px;
+	border-bottom: 2px solid #ffffff;
+	margin: 32px 0;
+}
+.input-box label{
+	position: absolute;
+	top: 50%;
+	left: 6px;
+	transform: translateY(-50%);
+	pointer-events: none;
+	color: #ffffff;
+	font-weight: 500;
+	font-size: 18px;
+	transition: all ease .40s;
+}
+.input-box input{
+	height: 100%;
+	width: 100%;
+	background: transparent;
+	font-size: 17px;
+	font-weight: 600;
+	color: #fffff;
+	padding: 0 30px 0 6px;
+}
+.input-box .icon{
+	position: absolute;
+	right: 9px;
+	font-size: 20px;
+	color: #ffffff;
+	line-height: 55px;
+}
+.input-box input:focus label,
+.input-box input:valid label {
+	top: -3px;
+}
+.check{
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 500;
+	margin: -10px 0 15px;
+}
