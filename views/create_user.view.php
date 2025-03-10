@@ -1,45 +1,79 @@
 <?php require_once('../server/header.php'); ?>
-<link rel="stylesheet" type="text/css" href="../assets/styles/roles.css">
-<body>
-    <div class="ring">
-        <i style="--clr:#00ff0a"></i>
-        <i style="--clr:#ff0057"></i>
-        <i style="--clr:#fffd44"></i>
-        <div class="login">
-            <h2>Roles</h2>
-            <div class="inputBx">
-                <input type="text" placeholder="Nombre y Apellido">
-            </div>
-            <div class="inputBx">
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="inputBx">
-                <input type="password" placeholder="password">
-            </div>
-            <div class="inputBx">
-                <input type="password" placeholder="conformation password">
-            </div>
 
 
-            <div class="dropdown w-100 inputBx">
-                <button class="btn bg-background-gradient text-white dropdown-toggle rounded-5 w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Roles
-                </button>
-                <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" type="button">Administrador</button></li>
-                    <li><button class="dropdown-item" type="button"></button></li>
-                    <li><button class="dropdown-item" type="button"></button></li>
-                </ul>
-            </div>
-            <div class="inputBx">
-                <input type="submit" value="Registrar">
-            </div>
-            <!-- Boton de olvidar contraseña y ya tienes cuenta-->
-            <div class="links">
-                <a href="">Olvidaste la contraseña</a>
-                <a href="">¿Ya tienes cuenta?</a>
-            </div>
+  <form class="shadow rounded-3 bg-white p-5">
+    <h1 class="mb-5 text-primary">Crear Usuario</h1>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="form-floating">
+          <input type="text" class="form-control " id="nombre" placeholder="Raul">
+          <label for="nombre">Nombre</label>
         </div>
+      </div>
+
+      <div class="col-6 ">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="apellido" placeholder="Martinez">
+          <label for="apellido">Apellido</label>
+        </div>
+      </div>
+
     </div>
-</body>
+
+    <div class="row my-4">
+
+      <div class="col-12 ">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" placeholder="correo@example.com">
+          <label for="email">Correo Electrónico</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-6 ">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="pass1" placeholder="••••••••">
+          <label for="pass1">Contraseña</label>
+        </div>
+      </div>
+
+      <div class="col-6 ">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="pass2" placeholder="••••••••">
+          <label for="pass2">Confirmar Contraseña</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row my-4">
+
+      <div class="col-12 ">
+        <div class="form-floating">
+          <select class="form-select" id="rol">
+            <option selected>Selecciona un rol</option>
+            <option value="admin">Administrador</option>
+            <option value="editor">Editor</option>
+            <option value="usuario">Usuario</option>
+          </select>
+          <label for="rol">Rol</label>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="d-flex justify-content-end gap-3">
+      <button type="button" class="btn btn-danger d-flex align-items-center gap-2">
+        <i class="bi bi-trash"></i> Cancelar
+      </button>
+      <button type="submit" class="btn btn-success d-flex align-items-center gap-2">
+        <i class="bi bi-floppy"></i> Guardar
+      </button>
+    </div>
+  </form>
+
+
 <?php require_once('../server/footer.php'); ?>

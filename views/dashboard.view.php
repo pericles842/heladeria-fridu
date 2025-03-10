@@ -1,7 +1,7 @@
 <?php require_once('../server/header.php'); ?>
 
 <body>
-  <div class="d-flex">
+  <div class="d-flex  vh-100 overflow-hidden">
 
     <!--//** CONTENEDOR DEL MENU -->
     <?php require_once('../server/menu.php'); ?>
