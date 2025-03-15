@@ -19,7 +19,7 @@
             <button class="primary-button" type="submit">Iniciar Session</button>
 
             <div class="d-flex gap-2 justify-content-between">
-                <a class="links" >Olvidaste la Contraseña</a>
+                <a class="links">Olvidaste la Contraseña</a>
                 <a class="links" href="../index.php">Volver</a>
             </div>
 

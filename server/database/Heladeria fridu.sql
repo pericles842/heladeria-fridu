@@ -2,7 +2,7 @@ CREATE TABLE `users` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `nombre` varchar(150) NOT NULL,
   `email` varchar(150) UNIQUE NOT NULL,
-  `password` varchar(150)  NOT NULL,
+  `password` varchar(150) NOT NULL,
   `rol_id` int NOT NULL
 );
 
@@ -20,8 +20,8 @@ CREATE TABLE `products` (
   `serial` varchar(150) UNIQUE NOT NULL,
   `description` text,
   `discount` int,
-  `price` decimal(10,2) NOT NULL DEFAULT 0,
-  `status` enum(available,sold) NOT NULL DEFAULT 'available',
+  `price` decimal(10, 2) NOT NULL DEFAULT 0,
+  `status` enum('available', 'sold') NOT NULL DEFAULT 'available',
   `category_id` int NOT NULL,
   `warehouse_id` int NOT NULL,
   `provider_id` int NOT NULL,
@@ -60,25 +60,56 @@ CREATE TABLE `sale_products` (
 CREATE TABLE `dispatches` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `sale_id` int NOT NULL,
-  `status` enum(pending,in_transit,delivered,canceled) NOT NULL DEFAULT 'pending',
+  `status` enum('pending', 'in_transit', 'delivered', 'canceled') NOT NULL DEFAULT 'pending',
   `tracking_code` varchar(100) UNIQUE,
   `delivery_date` datetime NOT NULL,
   `day_date_delivered` datetime NOT NULL,
   `location` varchar(255) NOT NULL
 );
 
-ALTER TABLE `users` ADD FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`);
+ALTER TABLE
+  `users`
+ADD
+  FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`);
 
-ALTER TABLE `products` ADD FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+ALTER TABLE
+  `products`
+ADD
+  FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
-ALTER TABLE `products` ADD FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`);
+ALTER TABLE
+  `products`
+ADD
+  FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`);
 
-ALTER TABLE `products` ADD FOREIGN KEY (`provider_id`) REFERENCES `providers` (`id`);
+ALTER TABLE
+  `products`
+ADD
+  FOREIGN KEY (`provider_id`) REFERENCES `providers` (`id`);
 
-ALTER TABLE `sales` ADD FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+ALTER TABLE
+  `sales`
+ADD
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `sale_products` ADD FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`);
+ALTER TABLE
+  `sale_products`
+ADD
+  FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`);
 
-ALTER TABLE `sale_products` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+ALTER TABLE
+  `sale_products`
+ADD
+  FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
-ALTER TABLE `dispatches` ADD FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`);
+ALTER TABLE
+  `dispatches`
+ADD
+  FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`);
+
+INSERT INTO
+  users (nombre, email, password, rol_id)
+VALUES
+  ('Jorge Garcia', 'admin@gmail.com', 'admin', 1);
+
+ 

@@ -12,7 +12,7 @@
       <?php require_once('../server/profile.php'); ?>
 
       <!-- CONTENEDOR DE LOS FORMULARIOS -->
-      <div id="forms" class="d-flex flex-column w-100 h-100 p-5 overflow-auto " style="background-color:rgb(242, 242, 242);">
+      <div id="forms" class="d-flex flex-column w-100 h-100 p-3 overflow-auto " style="background-color:rgb(242, 242, 242);">
         <!-- AQUI SE VA A RENDERIZAR EL TEMPLATE -->
       </div>
     </div>
@@ -29,7 +29,9 @@
    * 
    */
   function touchMenu(index) {
-    files = ['', 'cargos', 'create_user'];
+    //array con los nombres de las vistas 
+    files = ['', 'cargos', 'create_user','provedor','almacen','list_user','categoria'];
+ 
     const links = document.querySelectorAll('#menu a');
 
     links.forEach((link, i) => {
@@ -45,7 +47,7 @@
       }
 
 
-      if (index == 11) {
+      if (index == 10) {
         sessionStorage.removeItem('user');
         sessionStorage.removeItem('isLogged');
         window.location.href = '../index.php';
