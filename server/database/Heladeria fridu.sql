@@ -107,6 +107,7 @@ ALTER TABLE
 ADD
   FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`);
 
+
 INSERT INTO
   roles (name, `create`, `update`, `delete`)
 VALUES
