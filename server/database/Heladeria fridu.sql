@@ -108,8 +108,14 @@ ADD
   FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`);
 
 INSERT INTO
+  roles (name, `create`, `update`, `delete`)
+VALUES
+  ('Administrador', 1, 1, 1),
+  ('Cliente', 0, 0, 0),
+  ('Trabajador', 0, 0, 0);
+
+INSERT INTO
   users (nombre, email, password, rol_id)
 VALUES
-  ('Jorge Garcia', 'admin@gmail.com', 'admin', 1);
-
- 
+  ('Jorge Garcia', 'admin@gmail.com', '123', 1),
+  ('Juan Perez', 'client@gmail.com', '123', 3);

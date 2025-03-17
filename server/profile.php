@@ -5,8 +5,8 @@
             <img src="#" alt="" width="32" height="32" class="rounded-circle me-2">
 
             <div class="d-flex flex-column align-items-start ">
-                <strong class="text-white">Enderson García</strong>
-                <span class="text-white">Administrador</span>
+                <strong id="name" class="text-white">Enderson García</strong>
+                <span id="role" class="text-white">Administrador</span>
             </div>
         </a>
 
@@ -21,3 +21,11 @@
         </ul>
     </div>
 </div>
+
+<script>
+    window.addEventListener('load', function() {
+        let usuario = JSON.parse(sessionStorage.getItem('usuario'));
+        document.getElementById('name').textContent = usuario.nombre;
+        document.getElementById('role').textContent = usuario.cargo;
+    });
+</script>

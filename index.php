@@ -35,7 +35,10 @@
           </li>
 
         </ul>
-        <a class="btns" href="./views/login.view.php"> Inicia Sección </a>
+        <div class="d-flex gap-2">
+          <a class="btns" href="./views/login.view.php"> Inicia Sección </a>
+          <a class="btns" href="./views/registro.view.php"> Registro</a>
+        </div>
       </div>
     </div>
   </nav>

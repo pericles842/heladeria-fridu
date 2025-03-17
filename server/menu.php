@@ -1,6 +1,6 @@
 <div id="menu" class="d-flex flex-column flex-shrink-0 p-3 m-0 ">
   <!-- EL LOGO DEL MENU -->
-  <a onclick="touchMenu(0)" href="/" class="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+  <a onclick="touchMenu(0)" href="../index.php" class="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
     <img style="width: 35%;  object-fit: cover; object-position: center;" src="../img/logo.jpg">
   </a>
   <hr>

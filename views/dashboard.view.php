@@ -30,7 +30,7 @@
    */
   function touchMenu(index) {
     //array con los nombres de las vistas 
-    files = ['', 'cargos', 'create_user','provedor','almacen','list_user','categoria'];
+    files = ['', 'cargos', 'create_user','provedor','almacen','list_user','categoria','','despacho'];
  
     const links = document.querySelectorAll('#menu a');
 
@@ -48,8 +48,8 @@
 
 
       if (index == 10) {
-        sessionStorage.removeItem('user');
-        sessionStorage.removeItem('isLogged');
+        sessionStorage.removeItem('usuario');
+        sessionStorage.removeItem('is_logged');
         window.location.href = '../index.php';
       }
     });
