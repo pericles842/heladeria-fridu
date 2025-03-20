@@ -36,13 +36,18 @@ CREATE TABLE `categories` (
 CREATE TABLE `warehouses` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
-  `code` varchar(50) UNIQUE NOT NULL
+  `code` varchar(50) UNIQUE NOT NULL,
+  `location` varchar(50) NOT NULL,
+  `status` enum('active', 'inactive') NOT NULL DEFAULT 'active'
 );
 
 CREATE TABLE `providers` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `company` varchar(100) NOT NULL,
-  `tel` varchar(20) UNIQUE NOT NULL
+  `tel` varchar(20) UNIQUE NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `rif` varchar(20) NOT NULL
 );
 
 CREATE TABLE `sales` (
@@ -106,7 +111,6 @@ ALTER TABLE
   `dispatches`
 ADD
   FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`);
-
 
 INSERT INTO
   roles (name, `create`, `update`, `delete`)
