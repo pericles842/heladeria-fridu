@@ -18,8 +18,6 @@
   <!-- Formularios -->
   <link rel="stylesheet" href="../assets/styles/formularios.css">
 
-  <!-- Dashboard -->
-  <link rel="stylesheet" href="../assets/styles/style.css">
 
   <!-- Registro -->
    <link rel="stylesheet" href="../assets/styles/theme.css">

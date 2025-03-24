@@ -1,7 +1,7 @@
 <?php require_once('../server/header.php'); ?>
 
 <body>
-  <form class="shadow rounded-3 bg-white p-5">
+  <form class="">
     <h1 class="mb-5 text-primary">Agregar Proveedor</h1>
     <div class="row ">
       <div class="col-6 mb-4">

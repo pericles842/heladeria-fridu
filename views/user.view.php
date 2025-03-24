@@ -1,7 +1,7 @@
 <?php require_once('../server/header.php'); ?>
 
 
-<form class="shadow rounded-3 bg-white p-5">
+<form class="">
   <h1 class="mb-5 text-primary">Crear Usuario</h1>
 
   <div class="row">
@@ -54,10 +54,6 @@
     <div class="col-12 ">
       <div class="form-floating">
         <select class="form-select" id="rol" name="rol_id">
-          <option selected value="">Selecciona un rol</option>
-          <option value="1">Administrador</option>
-          <option value="2">Trabajador</option>
-          <option value="3">Cliente</option>
         </select>
         <label for="rol">Rol</label>
       </div>
@@ -72,6 +68,30 @@
 </form>
 
 <script>
+
+getRoles();
+  
+  /**
+   * 
+   * Funcion para obtener los roles
+   * @param {FormData} formData
+   */
+  function getRoles() {
+    fetch('../server/api/auth/list_roles.service.php', {
+      method: 'GET'
+    }).then(data => data.json()).then(data => {
+      const selectRole = document.getElementById('rol');
+      selectRole.innerHTML = ''; // Clear existing options
+
+      data.data.forEach(role => {
+        const option = document.createElement('option');
+        option.value = role.id;
+        option.textContent = role.name;
+        selectRole.appendChild(option);
+      });
+    })
+  }
+
   function refreshForm() {
     document.querySelector('form').reset();
   }
