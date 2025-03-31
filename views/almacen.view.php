@@ -1,32 +1,51 @@
 <?php require_once('../server/header.php'); ?>
 
-<body>
-  <form class="">
-    <h1 class="mb-5 text-primary">Crear Almacén</h1>
-    <div class="row ">
-      <div class="col-6 mb-4">
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Ej.adminitrador">
-          <label for="floatingInput">Agregar Nombre</label>
-        </div>
-      </div>
 
-      <div class="col-6 mb-4">
-        <div class="form-floating">
-          <input type="" class="form-control" id="floatingInput" placeholder="">
-          <label for="floatingInput">Agregar Código</label>
-        </div>
+<form class="">
+  <h1 class="mb-4 text-primary">Agregar Almacén</h1>
+
+  <div class="row">
+    <div class="col-8">
+      <div class="form-floating">
+        <input type="text" class="form-control" name="name" required placeholder="alm-Mercedes">
+        <label for="nombre">Nombre</label>
       </div>
     </div>
-
-    <div class="d-flex justify-content-end gap-3">
-      <button type="button" class=" btn btn-danger d-flex align-items-center gap-2">
-        <i class="bi bi-trash"></i> Cancelar
-      </button>
-      <button type="button" class=" btn btn-success d-flex align-items-center gap-2">
-        <i class="bi bi-floppy"></i> Guardar
-      </button>
+    <div class="col-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" name="code" required placeholder="193404000">
+        <label for="nombre">Código</label>
+      </div>
     </div>
-  </form>
-</body>
+  </div>
+
+  <div class="row my-4" >
+    <div class="col-8">
+      <div class="form-floating">
+        <input type="text" class="form-control" name="location" required placeholder="">
+        <label for="nombre">Ubicación</label>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-floating">
+        <select class="form-select" name="status" required>
+          <option value="" selected hidden>Estatus</option>
+          <option value="active">Activo</option>
+          <option value="inactive">Inactivo</option>
+        </select>
+        <label for="nombre">Estatus</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end gap-3" style="width: fit-content; margin-left: auto;">
+    <button type="button" onclick="refreshForm()" class="btn btn-danger d-flex align-items-center gap-2">Cancelar</button>
+    <button type="submit" class="btn btn-success d-flex align-items-center gap-2">Guardar</button>
+  </div>
+</form>
+<script>
+  var randomNumber = Math.floor(10000 + Math.random() * 90000);
+  document.querySelector('input[name="code"]').value = randomNumber;
+  
+</script>
 <?php require_once('../server/footer.php'); ?>

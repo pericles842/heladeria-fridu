@@ -2,7 +2,7 @@
 
 <!-- Modal de formularios-->
 <div class="modal fade" id="exampleModal" tabindex="100" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div class="modal-dialog ">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -28,29 +28,15 @@
       <?php require_once('../server/profile.php'); ?>
 
       <!-- CONTENEDOR DE LOS FORMULARIOS -->
-      <div class="d-flex flex-column w-100 h-100 p-3 overflow-auto " style="background-color:rgb(242, 242, 242);">
+      <div class="d-flex flex-column w-100 h-100 p-3 overflow-auto  gap-3" style="background-color:rgb(242, 242, 242);">
         <!-- boton para crear nuevo registro -->
-        <button class="btn btn-success" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="btn btn-success" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
           <div class="d-flex justify-content-center align-items-center gap-2">
             <i class="bi bi-plus-square fs-4"></i>
             <span class="fs-5">Crear </span>
           </div>
         </button>
-        <!-- Modal de formularios-->
-        <div class="modal fade" id="exampleModal" tabindex="100" aria-labelledby="exampleModalLabel" aria-hidden="false">
-          <div class="modal-dialog ">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div id="formulario-modal" class="p-2">
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- PANTALLA DEL TEMPLATE -->
         <div id="forms">
           <!-- AQUI SE VA A RENDERIZAR EL TEMPLATE -->
@@ -65,7 +51,9 @@
 
 <script>
   window.addEventListener('load', () => {
-    renderingTemplate('cargos');
+    //para  crear el renderer la primera pantalla sin darle al menu
+    renderingTemplate('list_roles');
+    renderingTemplate('roles', 'formulario-modal');
   })
   /**
    * Función para activar el menu
@@ -73,7 +61,7 @@
    */
   function touchMenu(index) {
     //array con los nombres de las vistas 
-    files = ['', 'cargos', 'list_user', 'list_provedor', 'list_almacen', 'list_user', 'categoria', '', 'despacho'];
+    files = ['', 'list_roles', 'list_user', 'list_provedor', 'list_almacen', 'list_user', 'list_categoria', '', 'list_despacho'];
 
     const links = document.querySelectorAll('#menu a');
 
@@ -125,9 +113,11 @@
         scripts.forEach(script => {
           const newScript = document.createElement('script');
           newScript.innerHTML = script.innerHTML;
-          document.body.appendChild(newScript);
-        });
 
+          //Si la etiqueta tiene contenido se inserta en el body
+          if (newScript.textContent.trim()) document.body.appendChild(newScript);
+
+        });
 
       })
       .catch(error => console.error('Error cargando la vista:', error));

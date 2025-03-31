@@ -68,9 +68,8 @@
 </form>
 
 <script>
+  getRoles();
 
-getRoles();
-  
   /**
    * 
    * Funcion para obtener los roles
@@ -101,6 +100,7 @@ getRoles();
 
     const formData = new FormData(this);
 
+    formData.set('nombre', `${formData.get('nombre')} ${formData.get('apellido') || ''}`);
     //*VALIDAMOS LAS CONTRASENAS
     if (formData.get('password') != formData.get('password2')) {
       Swal.fire({
@@ -119,7 +119,8 @@ getRoles();
         icon: data.success ? 'success' : 'error'
       });
 
-      refreshForm();
+
+      if (data.success) refreshForm();
     })
   })
 </script>
