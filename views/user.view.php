@@ -21,7 +21,7 @@
 
   </div>
 
-  <div class="row my-4">
+  <div class="row my-3">
 
     <div class="col-12 ">
       <div class="form-floating">
@@ -49,7 +49,7 @@
 
   </div>
 
-  <div class="row my-4">
+  <div class="row my-3">
 
     <div class="col-12 ">
       <div class="form-floating">

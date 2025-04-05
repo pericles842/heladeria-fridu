@@ -1,5 +1,5 @@
 <?php require_once('./server/header.php'); ?>
-
+<?php require_once('./server/api/conexion_db.php'); ?>
 <!-- ESTUYLOS DE LA WEB IMPORTANTE NO TOCAR LA RUTA-->
 <link rel="stylesheet" href="./assets/styles/style.css">
 
@@ -88,12 +88,20 @@
       <h3 style="text-align: center;">100% Natural</h3>
       <h1>Nuestros Productos</h1>
     </div>
-    <div class="product_menu">
-      <button data-aos="fade-up" data-aos-duration="1600" type="button" data-filter=".strowberry">FRESA</button>
-      <button data-aos="fade-up" data-aos-duration="1700" type="button" data-filter=".chocolet">CHOCOLATE</button>
-      <button data-aos="fade-up" data-aos-duration="1900" type="button" data-filter=".venila">VAINILLA</button>
 
+    <div class="product_menu">
+      <?php
+      $sql = "SELECT name FROM categories";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          echo '<button data-aos="fade-up" data-aos-duration="1600" type="button" data-filter=".' . $row['name'] . '">' .  strtoupper($row['name']) . '</button>';
+        }
+      }
+      ?>
     </div>
+
+
 
     <div class="container">
       <div class="mix venila" data-order="1"><img src="img/Bati.jpg" alt=""></div>

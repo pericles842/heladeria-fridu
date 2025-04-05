@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class="row my-4" >
+  <div class="row my-4">
     <div class="col-8">
       <div class="form-floating">
         <input type="text" class="form-control" name="location" required placeholder="">
@@ -46,6 +46,30 @@
 <script>
   var randomNumber = Math.floor(10000 + Math.random() * 90000);
   document.querySelector('input[name="code"]').value = randomNumber;
-  
+
+  function refreshForm() {
+    document.querySelector('form').reset();
+  }
+
+
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('../server/api/warehouse/create_warehouse.service.php', {
+      method: 'POST',
+      body: formData
+
+    }).then(data => data.json()).then(data => {
+      Swal.fire({
+        title: data.message,
+        icon: data.success ? 'success' : 'error'
+      });
+
+      if (data.success) refreshForm();
+
+    })
+  })
 </script>
 <?php require_once('../server/footer.php'); ?>
