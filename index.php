@@ -27,7 +27,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link " href="#porqueescogernos">¿Por que escogernosnos?</a>
+            <a class="nav-link " href="#porqueescogernos">¿Por que escogernos?</a>
           </li>
 
           <li class="nav-item">
@@ -36,7 +36,7 @@
 
         </ul>
         <div class="d-flex gap-2">
-          <a class="btns" href="./views/login.view.php"> Inicia Sección </a>
+          <a class="btns" href="./views/login.view.php"> Inicia Sesión </a>
           <a class="btns" href="./views/registro.view.php"> Registro</a>
         </div>
       </div>
@@ -69,7 +69,7 @@
   <div class="hero" id="home">
     <div class="icecream_info">
       <h1 data-aos="fade-right" data-aos-duration="1500">BIENVENIDO AL MUNDO DE LOS <SPan>HELADOS</SPan> TU LUGAR FAVORITO</h1>
-      <p data-aos="fade-right" data-aos-duration="1600">Heladeria Fridu. El mejor lugar para alegrar tu tarde</p>
+      <p data-aos="fade-right" data-aos-duration="1600">Heladería Fridu. El mejor lugar para alegrar tu tarde</p>
       <div class="social_media">
         <i data-aos="fade-up" data-aos-duration="1000" class="fa-brands fa-facebook"></i>
         <i data-aos="fade-up" data-aos-duration="1100" class="fa-brands fa-twitter"></i>
@@ -124,13 +124,15 @@
         <h3>Sobre nosotros</h3>
         <h1>Disfruta antes de que se derrita</h1>
       </div>
-      <p data-aos="fade-left" data-aos-duration="1500">Nuestra heladería es la elección perfecta
-        para los amantes del helado. Elaboramos cada sabor con la más alta calidad,
-        creando una experiencia única en cada cucharada. Nuestra pasión por el helado se refleja en la variedad
-        de sabores y presentaciones que ofrecemos. Además, nos preocupamos
-        por la satisfacción de nuestros clientes, brindando un servicio amable y personalizado. ¡Visítanos y descubre
-        por qué somos la heladería líder en el mercado!
-      </p>
+      <div style="width: fit-content; ">
+        <p data-aos="fade-left" data-aos-duration="1500">Nuestra heladería es la elección perfecta
+          para los amantes del helado. Elaboramos cada sabor con la más alta calidad,
+          creando una experiencia única en cada cucharada. Nuestra pasión por el helado se refleja en la variedad
+          de sabores y presentaciones que ofrecemos. Además, nos preocupamos
+          por la satisfacción de nuestros clientes, brindando un servicio amable y personalizado. ¡Visítanos y descubre
+          por qué somos la heladería líder en el mercado!
+        </p>
+      </div>
       <div class="cheak_box">
         <div class="col">
           <div data-aos="fade-left" data-aos-duration="1600" class="row">

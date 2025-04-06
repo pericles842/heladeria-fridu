@@ -61,7 +61,9 @@
    */
   function touchMenu(index) {
     //array con los nombres de las vistas 
-    files = ['', 'list_roles', 'list_user', 'list_provedor', 'list_almacen', 'list_user', 'list_categoria', '', 'list_despacho'];
+    files = ['', 'list_roles', 'list_user', 'list_provedor', 'list_almacen',
+      'list_product', 'list_categoria', '', 'list_despacho'
+    ];
 
     const links = document.querySelectorAll('#menu a');
 
