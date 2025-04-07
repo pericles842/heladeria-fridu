@@ -81,7 +81,9 @@
       const tbody = document.querySelector('#rolesTbody');
 
       tbody.innerHTML = '';
-      data.data.forEach(result => {
+      for (let i = 0; i < data.data.length; i++) {
+        const result = data.data[i];
+        if (result.id == 1) continue;
         const row = document.createElement('tr');
         row.innerHTML = `
              <th scope="row">${result.id}</th>
@@ -94,7 +96,7 @@
               </td>
            `;
         tbody.appendChild(row);
-      });
+      }
 
     });
 </script>

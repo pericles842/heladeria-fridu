@@ -82,14 +82,13 @@
       const selectRole = document.getElementById('rol');
       selectRole.innerHTML = ''; // Clear existing options
 
-      data.data.forEach(role => {
-
-
+      for (const role of data.data) {
+        if (role.id == 1) continue;
         const option = document.createElement('option');
         option.value = role.id;
         option.textContent = role.nombre;
         selectRole.appendChild(option);
-      });
+      }
     })
   }
 

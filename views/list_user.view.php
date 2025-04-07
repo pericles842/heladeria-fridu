@@ -23,7 +23,9 @@
       const tbody = document.querySelector('tbody');
 
       tbody.innerHTML = '';
-      data.data.forEach(user => {
+      for (const user of data.data) {
+        if (user.id == 1) continue;
+
         const row = document.createElement('tr');
         row.innerHTML = `
              <th scope="row">${user.id}</th>
@@ -36,7 +38,7 @@
               </td>
            `;
         tbody.appendChild(row);
-      });
+      }
 
-    });
+    })
 </script>
