@@ -38,6 +38,7 @@ function createAccount($conn, $name, $email, $password, $role_id)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $role_id =  isset($_POST['role_id']) ? $_POST['role_id'] : 3;
+    $role_id = !empty($_POST['rol_id']) ? $_POST['rol_id'] : 2;
+
     echo createAccount($conn, $_POST['nombre'], $_POST['email'], $_POST['password'], $role_id);
 }

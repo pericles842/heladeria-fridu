@@ -1,0 +1,20 @@
+.card {
+    width: 200px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+}
+
+.web-development {
+    background-color: #6a1b9a;
+}
+
+.mobile-app-design {
+    background-color: #26c6da;
+}
+
+.facebook-brand-ui-kit {
+    background-color: #ff7043;
+}

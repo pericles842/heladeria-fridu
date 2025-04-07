@@ -47,9 +47,7 @@
   var randomNumber = Math.floor(10000 + Math.random() * 90000);
   document.querySelector('input[name="code"]').value = randomNumber;
 
-  function refreshForm() {
-    document.querySelector('form').reset();
-  }
+
 
 
   document.querySelector('form').addEventListener('submit', function(event) {
@@ -67,7 +65,7 @@
         icon: data.success ? 'success' : 'error'
       });
 
-      if (data.success) refreshForm();
+      if (data.success) refreshForm('almacen');
 
     })
   })

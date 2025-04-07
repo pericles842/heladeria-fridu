@@ -59,9 +59,7 @@
 </body>
 
 <script>
-  function refreshForm() {
-    document.querySelector('form').reset();
-  }
+ 
 
   document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -78,7 +76,7 @@
         icon: data.success ? 'success' : 'error'
       });
 
-      if (data.success) refreshForm();
+      if (data.success) refreshForm('provedor');
 
     })
   })

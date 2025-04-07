@@ -51,6 +51,23 @@
 
 <script>
   window.addEventListener('load', () => {
+    
+    modulesTheUser = JSON.parse(sessionStorage.getItem('usuario')).permission;
+    
+    const links = document.querySelectorAll('#menu a');
+    
+    for (let i = 0; i < links.length; i++) {
+      let link = links[i];
+      let key_module = link.textContent.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+      
+      if (!key_module || key_module === 'salir') continue;
+      console.log(i,key_module);
+
+      let moduleUser = modulesTheUser.find(module_user => module_user.key == key_module)
+      
+      if (!moduleUser.ver) link.remove();
+    }
+
     //para  crear el renderer la primera pantalla sin darle al menu
     renderingTemplate('list_roles');
     renderingTemplate('roles', 'formulario-modal');
@@ -62,12 +79,13 @@
   function touchMenu(index) {
     //array con los nombres de las vistas 
     files = ['', 'list_roles', 'list_user', 'list_provedor', 'list_almacen',
-      'list_product', 'list_categoria', '', 'list_despacho'
+      'list_product', 'list_categoria', 'inventario', 'list_despacho'
     ];
 
     const links = document.querySelectorAll('#menu a');
 
     links.forEach((link, i) => {
+
       if (i === index) {
         link.classList.add('active');
         link.classList.add('fw-semibold');

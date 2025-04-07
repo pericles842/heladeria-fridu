@@ -6,6 +6,8 @@
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Serial</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Almacen</th>
         <th scope="col">Descripción</th>
         <th scope="col">Descuento</th>
         <th scope="col">Precio</th>

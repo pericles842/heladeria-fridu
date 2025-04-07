@@ -11,8 +11,8 @@ function validateAccount($conn, $email, $password)
 {
     try {
         // Preparar la consulta SQL
-        $stmt = $conn->prepare("SELECT users.id, users.nombre, users.email, users.rol_id, roles.name cargo,
-         JSON_OBJECT( 'crear', roles.create, 'eliminar', roles.update, 'actualizar', roles.delete ) AS permission
+        $stmt = $conn->prepare("SELECT users.id, users.nombre, users.email, users.rol_id, roles.nombre cargo,
+        roles.modules AS permission
         FROM users INNER JOIN roles on roles.id = users.rol_id
          WHERE users.email = ? and users.password = ?;");
 

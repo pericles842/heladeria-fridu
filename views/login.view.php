@@ -58,7 +58,7 @@
           }, 2300);
         }
       }).catch(err => {
-        console.log(err);
+        
       });
     })
   </script>

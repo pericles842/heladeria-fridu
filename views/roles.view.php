@@ -4,7 +4,7 @@
 <form class="">
   <h1 class="mb-5 text-primary">Agregar un Rol</h1>
 
-  <div class="row mb-4">
+  <div class="row ">
     <div class="col-12">
       <div class="form-floating">
         <input type="text" class="form-control " name="nombre" required placeholder="">
@@ -14,31 +14,62 @@
   </div>
 
 
-  <div class="accordion" id="accordionExample">
-    <!-- Usuario -->
+  <div class="accordion my-4" id="accordionExample">
+
+    <!-- rol -->
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Usuario
+          Roles
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show " data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="usuarioVer" value="ver">
-            <label class="form-check-label" for="usuarioVer">Ver</label>
+            <input class="form-check-input" type="checkbox" id="rolVer" value="ver">
+            <label class="form-check-label" for="rolVer">Ver</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="usuarioCrear" value="crear">
-            <label class="form-check-label" for="usuarioCrear">Crear</label>
+            <input class="form-check-input" type="checkbox" id="rolCrear" value="crear">
+            <label class="form-check-label" for="rolCrear">Crear</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="usuarioActualizar" value="actualizar">
-            <label class="form-check-label" for="usuarioActualizar">Actualizar</label>
+            <input class="form-check-input" type="checkbox" id="rolActualizar" value="actualizar">
+            <label class="form-check-label" for="rolActualizar">Actualizar</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="usuarioEliminar" value="eliminar">
-            <label class="form-check-label" for="usuarioEliminar">Eliminar</label>
+            <input class="form-check-input" type="checkbox" id="rolEliminar" value="eliminar">
+            <label class="form-check-label" for="rolEliminar">Eliminar</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- usuarios -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRoles" aria-expanded="false" aria-controls="collapseRol">
+          Usuarios
+        </button>
+      </h2>
+      <div id="collapseRoles" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="usuariosVer" value="ver">
+            <label class="form-check-label" for="usuariosVer">Ver</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="usuariosCrear" value="crear">
+            <label class="form-check-label" for="usuariosCrear">Crear</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="usuariosActualizar" value="actualizar">
+            <label class="form-check-label" for="usuariosActualizar">Actualizar</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="usuariosEliminar" value="eliminar">
+            <label class="form-check-label" for="usuariosEliminar">Eliminar</label>
           </div>
         </div>
       </div>
@@ -48,7 +79,7 @@
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Proveedor
+          Proveedores
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -77,7 +108,7 @@
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Almacen
+          Almacenes
         </button>
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -217,6 +248,36 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Reportes -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReport" aria-expanded="false" aria-controls="collapseReport">
+          Reportes
+        </button>
+      </h2>
+      <div id="collapseReport" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="ReportesVer" value="ver">
+            <label class="form-check-label" for="ReportesVer">Ver</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="ReportesCrear" value="crear">
+            <label class="form-check-label" for="ReportesCrear">Crear</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="ReportesActualizar" value="actualizar">
+            <label class="form-check-label" for="ReportesActualizar">Actualizar</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="ReportesEliminar" value="eliminar">
+            <label class="form-check-label" for="ReportesEliminar">Eliminar</label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
@@ -226,4 +287,58 @@
   </div>
 </form>
 
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+
+    //divs con la clase accordion-item
+    const accordion_items = document.querySelectorAll('.accordion-item');
+    const modulesArray = [];
+
+    accordion_items.forEach((accordion_item, index) => {
+
+      // Nombre del módulo según la clase accordion-button
+      const key = accordion_item.querySelector('.accordion-button').textContent.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+      const nombre = key.charAt(0).toUpperCase() + key.slice(1); // Primera letra mayúscula
+
+      const permissions = {
+        id: index + 1,
+        key: key,
+        nombre: nombre,
+        ver: false,
+        crear: false,
+        actualizar: false,
+        eliminar: false
+      };
+
+      // Recorrer checkboxes y actualizar los permisos
+      accordion_item.querySelectorAll('input[type="checkbox"]').forEach(input => {
+        const permiso = input.value.trim().toLowerCase(); // ver, crear, etc.
+
+        if (['ver', 'crear', 'actualizar', 'eliminar'].includes(permiso))
+          permissions[permiso] = input.checked;
+      });
+
+      modulesArray.push(permissions);
+    });
+
+
+    let formData = new FormData(this);
+    formData.append('modules', JSON.stringify(modulesArray));
+
+    fetch('../server/api/auth/create_role.service.php', {
+      method: 'POST',
+      body: formData
+    }).then(response => response.json()).then(response => {
+
+      Swal.fire({
+        title: response.message,
+        icon: response.success ? 'success' : 'error'
+      });
+
+      if (response.success) refreshForm('roles');
+    })
+  })
+</script>
 <?php require_once('../server/footer.php'); ?>

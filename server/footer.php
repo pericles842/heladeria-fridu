@@ -1,4 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
 
 
@@ -14,3 +13,6 @@
 
 <!-- sweetalert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- FUNCONES  -->
+<script src="../assets/scripts/functions.js"></script>

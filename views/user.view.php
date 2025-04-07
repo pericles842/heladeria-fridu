@@ -83,24 +83,24 @@
       selectRole.innerHTML = ''; // Clear existing options
 
       data.data.forEach(role => {
+
+
         const option = document.createElement('option');
         option.value = role.id;
-        option.textContent = role.name;
+        option.textContent = role.nombre;
         selectRole.appendChild(option);
       });
     })
   }
 
-  function refreshForm() {
-    document.querySelector('form').reset();
-  }
 
   document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const formData = new FormData(this);
+    var formData = new FormData(this);
 
     formData.set('nombre', `${formData.get('nombre')} ${formData.get('apellido') || ''}`);
+
     //*VALIDAMOS LAS CONTRASENAS
     if (formData.get('password') != formData.get('password2')) {
       Swal.fire({
@@ -120,7 +120,7 @@
       });
 
 
-      if (data.success) refreshForm();
+      if (data.success) refreshForm('user');
     })
   })
 </script>
