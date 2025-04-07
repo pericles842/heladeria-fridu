@@ -50,7 +50,7 @@
 
 
           setTimeout(() => {
-            if (data.data.rol_id != 3) {
+            if (data.data.rol_id != 2) {
               window.location.href = './dashboard.view.php';
             } else {
               window.location.href = '../index.php';
