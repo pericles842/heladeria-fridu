@@ -25,7 +25,7 @@ function createCategory($conn, $name)
         }
 
         // Respuesta exitosa
-        sendResponse(true, 'Almacén creado exitosamente.', null);
+        sendResponse(true, 'Categoría creada exitosamente.', null);
     } catch (Exception $e) {
         // Respuesta con el mensaje de error
         sendResponse(false, 'Error: ' . $e->getMessage(), null);

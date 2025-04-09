@@ -16,7 +16,7 @@
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item text-danger"  href="#">Salir</a></li>
+            <li><a class="dropdown-item text-danger" onclick="logout()" href="#">Salir</a></li>
         </ul>
     </div>
 </div>
@@ -27,4 +27,10 @@
         document.getElementById('name').textContent = usuario.nombre;
         document.getElementById('role').textContent = usuario.cargo;
     });
+
+    function logout() {
+        sessionStorage.removeItem('usuario');
+        sessionStorage.removeItem('is_logged');
+        window.location.href = '../index.php';
+    }
 </script>
