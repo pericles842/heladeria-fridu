@@ -124,7 +124,7 @@
         <h3>Sobre nosotros</h3>
         <h1>Disfruta antes de que se derrita</h1>
       </div>
-      <div style="width: fit-content; ">
+      <div style="text-align: justify; ">
         <p data-aos="fade-left" data-aos-duration="1500">Nuestra heladería es la elección perfecta
           para los amantes del helado. Elaboramos cada sabor con la más alta calidad,
           creando una experiencia única en cada cucharada. Nuestra pasión por el helado se refleja en la variedad
