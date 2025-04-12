@@ -27,9 +27,19 @@ function deleteRegistro(id, nameForm) {
                     icon: 'success'
                 });
                 refreshForm(nameForm);
+            } else {
+                Swal.fire({
+                    title: data.message,
+                    icon: 'error'
+                });
             }
         })
         .catch(error => {
+
             console.error('Error:', error);
+            Swal.fire({
+                title: error,
+                icon: 'error'
+            })
         });
 }

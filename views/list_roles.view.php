@@ -89,7 +89,7 @@
              <th scope="row">${result.id}</th>
              <td>${result.nombre}</td>
              <td>
-                  <button type="button" class="btn btn-danger" onclick="eliminarUsuario(${result.id})">Eliminar</button>
+                  <button type="button" class="btn btn-danger" onclick="deleteRegistro(${result.id}, 'roles')">Eliminar</button>
                   <button type="button" class="btn btn-primary">Editar</button>
                   <button type="button" onclick="viewRoleDetail(${result.id})" data-bs-toggle="modal" data-bs-target="#rolDetail" class="btn btn-primary">
                   Ver permisos</button>
