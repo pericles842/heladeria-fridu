@@ -65,7 +65,7 @@
         icon: data.success ? 'success' : 'error'
       });
 
-      if (data.success) refreshForm('almacen');
+      if (data.success) refreshForm('warehouse');
 
     })
   })
