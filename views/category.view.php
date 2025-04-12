@@ -36,7 +36,7 @@
         icon: data.success ? 'success' : 'error'
       });
 
-      if (data.success) refreshForm('categoria');
+      if (data.success) refreshForm('category');
 
     })
   })

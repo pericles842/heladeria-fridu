@@ -61,7 +61,6 @@
       let key_module = link.textContent.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
       
       if (!key_module || key_module === 'salir') continue;
-      console.log(i,key_module);
 
       let moduleUser = modulesTheUser.find(module_user => module_user.key == key_module)
       
@@ -79,7 +78,7 @@
   function touchMenu(index) {
     //array con los nombres de las vistas 
     files = ['', 'list_roles', 'list_user', 'list_provedor', 'list_almacen',
-      'list_product', 'list_categoria', 'inventario', 'list_despacho'
+      'list_product', 'list_category', 'inventario', 'list_despacho'
     ];
 
     const links = document.querySelectorAll('#menu a');

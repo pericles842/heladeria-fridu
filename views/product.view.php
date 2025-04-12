@@ -14,23 +14,7 @@
     <div class="col-6">
       <div class="form-floating">
         <input type="text" class="form-control" name="serial" required>
-        <label for="serial">Serial</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4">
-    <div class="col-6">
-      <div class="form-floating">
-        <input type="number" class="form-control" name="discount" required>
-        <label for="discount">Categoria</label>
-      </div>
-    </div>
-
-    <div class="col-6">
-      <div class="form-floating">
-        <input type="number" class="form-control" name="price" required>
-        <label for="price">Almacén</label>
+        <label for="serial">Numero del Serial</label>
       </div>
     </div>
   </div>
@@ -47,8 +31,16 @@
   <div class="row mb-4">
     <div class="col-6">
       <div class="form-floating">
-        <input type="number" class="form-control" name="discount" required>
-        <label for="discount">Proveedor</label>
+        <input type="text" class="form-control" name="discount" required>
+        <label for="discount">Descuento</label>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-6">
+      <div class="form-floating">
+        <input type="" class="form-control" name="" required>
+        <label for="price">Precio Unitario</label>
       </div>
     </div>
   </div>
@@ -56,51 +48,30 @@
   <div class="row mb-4">
     <div class="col-6">
       <div class="form-floating">
-        <input type="number" class="form-control" name="discount" required>
-        <label for="discount">Descuento</label>
+        <input type="text" class="form-control" name="discount" required>
+        <label for="discount">Estado</label>
       </div>
     </div>
-
-    <div class="col-6">
-      <div class="form-floating">
-        <input type="number" class="form-control" name="price" required>
-        <label for="price">Precio</label>
-      </div>
-    </div>
-  </div>
-
-  <label for="exampleDataList" class="form-label">Status</label>
-    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Status">
-    <datalist id="datalistOptions">
-      <option value="Activo">
-      <option value="Inactive"></option>
-    </datalist>
 
     <label for="exampleDataList" class="form-label">Almacén</label>
     <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="">
     <datalist id="datalistOptions">
-      <option value="Azucar">
-      <option value="Bolsas">
-      <option value="Leche">
-      <option value="Chocolate">
-      <option value="Leche Condensada">
+      <option value="Arequipe">
+      <option value="Azúcar">
+      <option value="Barquilla Sugar">
+      <option value="Barquillon(17CM)">
+      <option value="Barquillon(13CM)">
+      <option value="Bolsas de Barquillon">
     </datalist>
 
     <label for="exampleDataList" class="form-label">Categoria</label>
     <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="">
     <datalist id="datalistOptions">
-      <option value="Choco Oreo">
-      <option value="Fresa con Mantequedo">
-      <option value="Pastelado">
+      <option value="Mantecado - Choco">
+      <option value="Choco-Oreo">
+      <option value="Fresa">
     </datalist>
 
-    <label for="exampleDataList" class="form-label">Proveedor</label>
-    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="">
-    <datalist id="datalistOptions">
-      <option value="">
-      <option value="">
-      <option value="">
-    </datalist>
   </div>
 
   <div class="d-flex justify-content-end gap-3 mt-4" style="width: fit-content; margin-left: auto;">

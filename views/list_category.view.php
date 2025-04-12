@@ -9,14 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td>
-          <button type="button" class="btn btn-primary">Eliminar</button>
-          <button type="button" class="btn btn-warning">Guardar</button>
-        </td>
-      </tr>
+
     </tbody>
   </table>
 </div>
@@ -36,7 +29,7 @@
              <th scope="row">${result.id}</th>
              <td>${result.name}</td>
              <td>
-                  <button type="button" class="btn btn-danger" onclick="eliminarUsuario(${result.id})">Eliminar</button>
+                  <button type="button" class="btn btn-danger" onclick="deleteRegistro(${result.id} ,'category')">Eliminar</button>
                   <button type="button" class="btn btn-primary">Editar</button>
               </td>
            `;
