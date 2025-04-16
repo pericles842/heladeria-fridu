@@ -1,7 +1,7 @@
 <div id="menu" class="d-flex flex-column flex-shrink-0 p-3 m-0 ">
   <!-- EL LOGO DEL MENU -->
   <a onclick="touchMenu(0)" href="../index.php" class="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-    <img style="width: 35%;  object-fit: cover; object-position: center;" src="../img/logo.jpg">
+    <img style="width: 20%;  object-fit: cover; object-position: center;" src="../img/logo.jpg">
   </a>
   <hr>
   <!-- SECCIONES DEL MENU DE NAVEGACIÓN -->
@@ -106,9 +106,28 @@
         Reportes
       </a>
     </li>
+    <li>
+      <a onclick="touchMenu(10)" href="#" class="nav-link link-dark">
+        <i class="bi bi-cash-coin"></i>
+        <svg class="bi pe-none me-2" width="16" height="16">
+          <use xlink:href="#people-circle"></use>
+        </svg>
+        Gastos
+      </a>
+    </li>
+
+    <li>
+      <a onclick="touchMenu(11)" href="#" class="nav-link link-dark">
+        <i class="bi bi-check-all"></i>
+        <svg class="bi pe-none me-2" width="16" height="16">
+          <use xlink:href="#people-circle"></use>
+        </svg>
+        Pagos
+      </a>
+    </li>
   </ul>
   <hr>
-  <a onclick="touchMenu(10)" href="#" class="nav-link link-dark">
+  <a onclick="touchMenu(12)" href="#" class="nav-link link-dark">
     <i class="bi bi-box-arrow-left text-danger"></i>
     <span class="p-4">Salir</span>
   </a>

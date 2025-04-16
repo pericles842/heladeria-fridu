@@ -278,6 +278,65 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Gastos -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExpenses" aria-expanded="false" aria-controls="collapseExpenses">
+          Gastos
+        </button>
+      </h2>
+      <div id="collapseExpenses" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="GastosVer" value="ver">
+            <label class="form-check-label" for="GastosVer">Ver</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="GastosCrear" value="crear">
+            <label class="form-check-label" for="GastosCrear">Crear</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="GastosActualizar" value="actualizar">
+            <label class="form-check-label" for="GastosActualizar">Actualizar</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="GastosEliminar" value="eliminar">
+            <label class="form-check-label" for="GastosEliminar">Eliminar</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagos -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePayments" aria-expanded="false" aria-controls="collapsePayments">
+          Pagos
+        </button>
+      </h2>
+      <div id="collapsePayments" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="PagosVer" value="ver">
+            <label class="form-check-label" for="PagosVer">Ver</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="PagosCrear" value="crear">
+            <label class="form-check-label" for="PagosCrear">Crear</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="PagosActualizar" value="actualizar">
+            <label class="form-check-label" for="PagosActualizar">Actualizar</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="PagosEliminar" value="eliminar">
+            <label class="form-check-label" for="PagosEliminar">Eliminar</label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 

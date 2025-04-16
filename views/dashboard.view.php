@@ -97,7 +97,7 @@
       }
 
 
-      if (index == 10) {
+      if (index == 12) {
         sessionStorage.removeItem('usuario');
         sessionStorage.removeItem('is_logged');
         window.location.href = '../index.php';

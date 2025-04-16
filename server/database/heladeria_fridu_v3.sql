@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-04-2025 a las 04:13:45
+-- Tiempo de generación: 16-04-2025 a las 21:30:19
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `heladeria_fridu`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bills`
+--
+
+CREATE TABLE `bills` (
+  `id` int(11) NOT NULL,
+  `total_amount` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `provider_id` int(11) NOT NULL,
+  `created_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -66,14 +80,14 @@ CREATE TABLE `dispatches` (
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `serial` varchar(150) NOT NULL,
+  `reference` varchar(150) NOT NULL,
   `description` text DEFAULT NULL,
   `discount` int(11) DEFAULT NULL,
-  `price` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `unit_price` decimal(10,2) NOT NULL DEFAULT 0.00,
   `status` enum('available','sold') NOT NULL DEFAULT 'available',
+  `stock` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `warehouse_id` int(11) NOT NULL,
-  `provider_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -117,9 +131,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `nombre`, `modules`) VALUES
-(1, 'Administrador', '[{\"id\": 1, \"key\": \"roles\", \"nombre\": \"Roles\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 2, \"key\": \"usuarios\", \"nombre\": \"Usuarios\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 3, \"key\": \"proveedores\", \"nombre\": \"Proveedores\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 4, \"key\": \"almacenes\", \"nombre\": \"Almacenes\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 5, \"key\": \"productos\", \"nombre\": \"Productos\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 6, \"key\": \"categoria\", \"nombre\": \"Categoría\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 7, \"key\": \"inventario\", \"nombre\": \"Inventario\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 8, \"key\": \"despacho\", \"nombre\": \"Despacho\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 9, \"key\": \"reportes\", \"nombre\": \"Reportes\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}]'),
-(2, 'Cliente', '[{\"id\": 1, \"key\": \"roles\", \"nombre\": \"Roles\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 2, \"key\": \"usuarios\", \"nombre\": \"Usuarios\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 3, \"key\": \"proveedores\", \"nombre\": \"Proveedores\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 4, \"key\": \"almacenes\", \"nombre\": \"Almacenes\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 5, \"key\": \"productos\", \"nombre\": \"Productos\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 6, \"key\": \"categoria\", \"nombre\": \"Categoría\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 7, \"key\": \"inventario\", \"nombre\": \"Inventario\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 8, \"key\": \"despacho\", \"nombre\": \"Despacho\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 9, \"key\": \"reportes\", \"nombre\": \"Reportes\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}]'),
-(3, 'Empleado', '[{\"id\": 1, \"key\": \"roles\", \"nombre\": \"Roles\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 2, \"key\": \"usuarios\", \"nombre\": \"Usuarios\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 3, \"key\": \"proveedores\", \"nombre\": \"Proveedores\", \"ver\": true, \"crear\": true, \"actualizar\": false, \"eliminar\": false}, {\"id\": 4, \"key\": \"almacenes\", \"nombre\": \"Almacenes\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 5, \"key\": \"productos\", \"nombre\": \"Productos\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": false}, {\"id\": 6, \"key\": \"categoria\", \"nombre\": \"Categoría\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 7, \"key\": \"inventario\", \"nombre\": \"Inventario\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": false}, {\"id\": 8, \"key\": \"despacho\", \"nombre\": \"Despacho\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 9, \"key\": \"reportes\", \"nombre\": \"Reportes\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}]');
+(1, 'Administrador', '[{\"id\": 1, \"key\": \"roles\", \"nombre\": \"Roles\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 2, \"key\": \"usuarios\", \"nombre\": \"Usuarios\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 3, \"key\": \"proveedores\", \"nombre\": \"Proveedores\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 4, \"key\": \"almacenes\", \"nombre\": \"Almacenes\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 5, \"key\": \"productos\", \"nombre\": \"Productos\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 6, \"key\": \"categoria\", \"nombre\": \"Categoría\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 7, \"key\": \"inventario\", \"nombre\": \"Inventario\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 8, \"key\": \"despacho\", \"nombre\": \"Despacho\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 9, \"key\": \"reportes\", \"nombre\": \"Reportes\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 10, \"key\": \"gastos\", \"nombre\": \"Gastos\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}, {\"id\": 11, \"key\": \"pagos\", \"nombre\": \"Pagos\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": true}]'),
+(2, 'Cliente', '[{\"id\": 1, \"key\": \"roles\", \"nombre\": \"Roles\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 2, \"key\": \"usuarios\", \"nombre\": \"Usuarios\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 3, \"key\": \"proveedores\", \"nombre\": \"Proveedores\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 4, \"key\": \"almacenes\", \"nombre\": \"Almacenes\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 5, \"key\": \"productos\", \"nombre\": \"Productos\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 6, \"key\": \"categoria\", \"nombre\": \"Categoría\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 7, \"key\": \"inventario\", \"nombre\": \"Inventario\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 8, \"key\": \"despacho\", \"nombre\": \"Despacho\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 9, \"key\": \"reportes\", \"nombre\": \"Reportes\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 10, \"key\": \"gastos\", \"nombre\": \"Gastos\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 11, \"key\": \"pagos\", \"nombre\": \"Pagos\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}]'),
+(3, 'Empleado', '[{\"id\": 1, \"key\": \"roles\", \"nombre\": \"Roles\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 2, \"key\": \"usuarios\", \"nombre\": \"Usuarios\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 3, \"key\": \"proveedores\", \"nombre\": \"Proveedores\", \"ver\": true, \"crear\": true, \"actualizar\": false, \"eliminar\": false}, {\"id\": 4, \"key\": \"almacenes\", \"nombre\": \"Almacenes\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 5, \"key\": \"productos\", \"nombre\": \"Productos\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": false}, {\"id\": 6, \"key\": \"categoria\", \"nombre\": \"Categoría\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 7, \"key\": \"inventario\", \"nombre\": \"Inventario\", \"ver\": true, \"crear\": true, \"actualizar\": true, \"eliminar\": false}, {\"id\": 8, \"key\": \"despacho\", \"nombre\": \"Despacho\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 9, \"key\": \"reportes\", \"nombre\": \"Reportes\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 10, \"key\": \"gastos\", \"nombre\": \"Gastos\", \"ver\": false, \"crear\": false, \"actualizar\": false, \"eliminar\": false}, {\"id\": 11, \"key\": \"pagos\", \"nombre\": \"Pagos\", \"ver\": true, \"crear\": false, \"actualizar\": false, \"eliminar\": false}]');
 
 -- --------------------------------------------------------
 
@@ -142,7 +156,10 @@ CREATE TABLE `sales` (
 CREATE TABLE `sale_products` (
   `id` int(11) NOT NULL,
   `sale_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
+  `product_id` int(11) NOT NULL,
+  `unit_price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `sub_total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -196,6 +213,13 @@ INSERT INTO `warehouses` (`id`, `name`, `code`, `location`, `status`) VALUES
 --
 
 --
+-- Indices de la tabla `bills`
+--
+ALTER TABLE `bills`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_bills_provider` (`provider_id`);
+
+--
 -- Indices de la tabla `categories`
 --
 ALTER TABLE `categories`
@@ -214,10 +238,9 @@ ALTER TABLE `dispatches`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `serial` (`serial`),
+  ADD UNIQUE KEY `reference` (`reference`),
   ADD KEY `category_id` (`category_id`),
-  ADD KEY `warehouse_id` (`warehouse_id`),
-  ADD KEY `provider_id` (`provider_id`);
+  ADD KEY `warehouse_id` (`warehouse_id`);
 
 --
 -- Indices de la tabla `providers`
@@ -265,6 +288,12 @@ ALTER TABLE `warehouses`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `bills`
+--
+ALTER TABLE `bills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `categories`
@@ -325,6 +354,12 @@ ALTER TABLE `warehouses`
 --
 
 --
+-- Filtros para la tabla `bills`
+--
+ALTER TABLE `bills`
+  ADD CONSTRAINT `fk_bills_provider` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `dispatches`
 --
 ALTER TABLE `dispatches`
@@ -335,8 +370,7 @@ ALTER TABLE `dispatches`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`),
-  ADD CONSTRAINT `products_ibfk_3` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`id`);
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`);
 
 --
 -- Filtros para la tabla `sales`
