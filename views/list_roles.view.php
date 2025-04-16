@@ -61,7 +61,7 @@
       const row = document.createElement('tr');
       row.innerHTML = `
              <td scope="row">${result.nombre}</td>
-             <td>${result.ver}</td>
+             <td>${result.ver ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle-fill text-danger"></i>'}</td>
              <td>${result.crear}</td>
              <td>${result.actualizar}</td>
              <td>${result.eliminar}</td>
