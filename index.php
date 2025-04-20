@@ -55,14 +55,20 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Comprobar pago</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
-          <div class="input-group mb-3">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Archivo</button>
-            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label" style="color: #E44E8A;">Referencia</label>
+            <input type="text" class="form-control" id="formGroupExampleInput">
+          </div>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label" style="color: #E44E8A;">Imagen de pago</label>
+            <input class="form-control" type="file" id="formFile">
           </div>
 
         </div>
