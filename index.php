@@ -36,8 +36,11 @@
 
         </ul>
         <div class="d-flex align-items-center gap-2">
-          <p id="name_user" class=" fw-semibold m-0" style="color: #E44E8A;">Louis Sarmiento</p>
-          <button class="btns fs-5 bi bi-cart"></button>
+          <p id="name_user" class=" fw-semibold m-0" style="color: #E44E8A;"></p>
+          <div>
+            <button class="btns fs-5 bi bi-cart" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+          </div>
+
           <a id="btn-login" class="btns" href="./views/login.view.php"> Inicia Sesión </a>
           <a id="btn-register" class="btns" href="./views/registro.view.php"> Registro</a>
           <button id="btn-logout" id="btn-exit" class="btn  btn-outline-danger" onclick="logout()">Salir</button>
@@ -45,6 +48,31 @@
       </div>
     </div>
   </nav>
+
+  <!-- Modal -->
+
+  <div class="modal fade" id="exampleModal" tabindex="100" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Archivo</button>
+            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btns">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- <div class="menu" id="menu">
         <a data-aos="fade-up" data-aos-duration="800" href="#home">Home</a>
         <a data-aos="fade-up" data-aos-duration="900" href="#producto">Productos</a>
@@ -248,11 +276,9 @@
 </section>
 
 
-
-
 <div class="contact" id="contacto">
-
 </div>
+
 <div class="footer">
   <div class="footer_social">
     <div class="logo f_logo">
@@ -277,7 +303,7 @@
     <div class="footer_heading">
       <h3>Horas de Trabajo</h3>
     </div>
-    <p>De lunes a sabados de 10am - 6pm</p>
+    <p>De lunes a sabados de 8am - 6pm</p>
 
   </div>
   <div class="Uesfullinks">
@@ -288,9 +314,11 @@
   </div>
 </div>
 
-<?php require_once('./server/footer.php'); ?>
 
+<?php require_once('./server/footer.php'); ?>
 </body>
+
+
 
 <script>
   window.addEventListener('load', () => {

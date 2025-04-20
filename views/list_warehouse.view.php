@@ -6,8 +6,8 @@
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Código</th>
-        <th scope="col">Email</th>
-        <th scope="col">localization</th>
+        <th scope="col">Ubicación</th>
+        <th scope="col">Estado</th>
         <th scope="col">Acción</th>
       </tr>
     </thead>
