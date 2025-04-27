@@ -78,7 +78,7 @@
   function touchMenu(index) {
     //array con los nombres de las vistas 
     files = ['', 'list_roles', 'list_user', 'list_provedor', 'list_warehouse',
-      'list_product', 'list_category', 'inventario', 'list_despacho','','list_gastos'
+      'list_product', 'list_category', 'inventario', 'list_despacho','','list_gastos','list_pagos'
     ];
 
     const links = document.querySelectorAll('#menu a');
