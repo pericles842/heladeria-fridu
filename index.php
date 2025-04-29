@@ -244,40 +244,30 @@
       <h3>Nuestro Menú</h3>
       <h1>Recomendaciones de nuestro menú</h1>
 
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card  h-100">
-            <img src="img/Barquillon.jpg" class=" rounded-top-3" alt="..." style="height: 400px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Barquillones</h5>
-              <p class="card-text">9 Barquillon 17cm x 12$</p>
-              <a href="#" class="btns w-100">Agregar al carrito</a>
-            </div>
-          </div>
-        </div>
 
-        <div class="col">
-          <div class="card h-100">
-            <img src="img/cono.jpg" class=" rounded-top-3" alt="..." style="height: 400px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Conos</h5>
-              <p class="card-text">Al mayor 25 x 13$</p>
-              <a href="#" class="btns w-100">Agregar al carrito</a>
-            </div>
-          </div>
-        </div>
+      <?php
+      $sql = "SELECT * FROM products";
+      $result = $conn->query($sql);
 
-        <div class="col">
-          <div class="card h-100">
-            <img src="img/Tetas1.jpg" class=" rounded-top-3" alt="..." style="height: 400px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Tetas</h5>
-              <p class="card-text">25 Tetas Gourment 200gr x 12$</p>
-              <a href="#" class="btns w-100">Agregar al carrito</a>
-            </div>
-          </div>
+      if ($result->num_rows > 0) {
+        echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
+        while ($row = $result->fetch_assoc()) {
+          echo '
+    <div class="col">
+      <div class="card h-100">
+        <img src="img/Barquillon.jpg" style="height: 400px; object-fit: cover;">
+        <div class="card-body ">
+          <h5 class="card-title">' . htmlspecialchars($row['name']) . '</h5>
+          <p class="card-text">' . htmlspecialchars($row['description']) . ' x $' . htmlspecialchars($row['unit_price']) . '</p>
+          <a href="#" class="btns w-100">Agregar al carrito</a>
         </div>
       </div>
+    </div>';
+        }
+        echo '</div>';
+      }
+      ?>
+
     </div>
 </section>
 
