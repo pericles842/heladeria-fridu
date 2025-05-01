@@ -76,7 +76,7 @@
         icon: data.success ? 'success' : 'error'
       });
 
-      if (data.success) refreshForm('provedor');
+      if (data.success) refreshForm('provider');
 
     })
   })

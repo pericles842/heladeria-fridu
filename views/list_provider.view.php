@@ -36,7 +36,7 @@
              <td>${result.location}</td>
              <td>${result.rif}</td>
              <td>
-                  <button type="button" class="btn btn-danger" onclick="eliminarUsuario(${result.id})">Eliminar</button>
+                  <button type="button" class="btn btn-danger"  onclick="deleteRegistro(${result.id} ,'provider')">Eliminar</button>
                   <button type="button" class="btn btn-primary">Editar</button>
               </td>
            `;

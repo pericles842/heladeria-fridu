@@ -62,9 +62,9 @@
       row.innerHTML = `
              <td scope="row">${result.nombre}</td>
              <td>${result.ver ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle-fill text-danger"></i>'}</td>
-             <td>${result.crear}</td>
-             <td>${result.actualizar}</td>
-             <td>${result.eliminar}</td>
+              <td>${result.crear ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle-fill text-danger"></i>'}</td>
+              <td>${result.actualizar ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle-fill text-danger"></i>'}</td>
+              <td>${result.eliminar ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle-fill text-danger"></i>'}</td>
            `;
       tbody.appendChild(row);
     });
