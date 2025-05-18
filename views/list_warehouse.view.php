@@ -5,9 +5,9 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Código</th>
-        <th scope="col">Ubicación</th>
+        <th scope="col">Categoria</th>
         <th scope="col">Estado</th>
+        <th scope="col">status</th>
         <th scope="col">Acción</th>
       </tr>
     </thead>

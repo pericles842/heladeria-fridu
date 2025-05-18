@@ -33,7 +33,7 @@
         <button class="btn btn-success" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
           <div class="d-flex justify-content-center align-items-center gap-2">
             <i class="bi bi-plus-square fs-4"></i>
-            <span class="fs-5">Crear </span>
+            <span class="fs-5">Crear</span>
           </div>
         </button>
 

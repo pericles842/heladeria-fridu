@@ -3,7 +3,6 @@
 <body>
     <?php
     $projects = [
-        ["title" => "Ventas", "tasks" => 10, "completion" => 96, "class" => "web-development"],
         ["title" => "Egreso", "tasks" => 12, "completion" => 46, "class" => "mobile-app-design"],
         ["title" => "Productos", "tasks" => 22, "completion" => 73, "class" => "facebook-brand-ui-kit"],
         ["title" => "Proveedores", "tasks" => 15, "completion" => 80, "class" => "web-development"],

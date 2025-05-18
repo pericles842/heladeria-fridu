@@ -14,7 +14,7 @@
     <div class="col-4">
       <div class="form-floating">
         <input type="text" class="form-control" name="code" required placeholder="193404000">
-        <label for="nombre">Código</label>
+        <label for="nombre">Categoria</label>
       </div>
     </div>
   </div>

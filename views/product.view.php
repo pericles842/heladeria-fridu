@@ -1,6 +1,6 @@
 <?php require_once('../server/header.php'); ?>
 
-<form >
+<form>
   <h1 class="mb-5 text-primary">Agregar Productos</h1>
 
   <div class="row mb-4">
@@ -10,34 +10,40 @@
         <label for="name">Nombre</label>
       </div>
     </div>
+  </div>
 
-    <div class="col-3">
-      <div class="form-floating">
-        <input type="text" class="form-control" name="reference" required>
-        <label for="reference">Numero del Serial</label>
-      </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Descuento</option>
+        <option value="1">0%</option>
+        <option value="2">5%</option>
+        <option value="3">10%</option>
+        <option value="4">15%</option>
+        <option value="5">20%</option>
+      </select>
     </div>
-
-    <div class="col-3">
-      <div class="form-floating">
-        <input type="number" class="form-control" name="discount" value="0">
-        <label for="discount">Descuento</label>
-      </div>
-    </div>
-
   </div>
 
   <div class="row mb-4">
     <div class="col-6">
       <div class="form-floating">
         <input type="" class="form-control" name="unit_price" required>
-        <label for="unit_price">Precio Unitario</label>
+        <label for="unit_price">Precio Unitario (Bs)</label>
       </div>
     </div>
-    <div class="col-6">
+
+    <div class="col-3">
       <div class="form-floating">
         <input type="number" class="form-control" name="stock" required>
-        <label>Stock</label>
+        <label>Minimo</label>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-floating">
+        <input type="number" class="form-control" name="stock" required>
+        <label>Maximo</label>
       </div>
     </div>
   </div>
