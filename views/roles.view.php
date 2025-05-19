@@ -16,11 +16,11 @@
 
   <div class="accordion my-4" id="accordionExample">
 
-    <!-- rol -->
+    <!-- permisos -->
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Roles
+          Permisos
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show " data-bs-parent="#accordionExample">
@@ -271,9 +271,6 @@
             <input class="form-check-input" type="checkbox" id="ReportesActualizar" value="actualizar">
             <label class="form-check-label" for="ReportesActualizar">Actualizar</label>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="ReportesEliminar" value="eliminar">
-            <label class="form-check-label" for="ReportesEliminar">Eliminar</label>
           </div>
         </div>
       </div>

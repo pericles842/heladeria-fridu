@@ -51,19 +51,19 @@
 
 <script>
   window.addEventListener('load', () => {
-    
+
     modulesTheUser = JSON.parse(sessionStorage.getItem('usuario')).permission;
-    
+
     const links = document.querySelectorAll('#menu a');
-    
+
     for (let i = 0; i < links.length; i++) {
       let link = links[i];
       let key_module = link.textContent.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-      
+
       if (!key_module || key_module === 'salir') continue;
 
       let moduleUser = modulesTheUser.find(module_user => module_user.key == key_module)
-      
+
       if (!moduleUser.ver) link.remove();
     }
 
@@ -78,7 +78,7 @@
   function touchMenu(index) {
     //array con los nombres de las vistas 
     files = ['', 'list_roles', 'list_user', 'list_provider', 'list_warehouse',
-      'list_product', 'list_category', 'inventario', 'list_despacho','','list_gasto','list_pagos'
+      'list_product', 'list_category', 'inventario', 'list_despacho', '', 'list_gasto', 'list_pagos'
     ];
 
     const links = document.querySelectorAll('#menu a');
@@ -119,13 +119,39 @@
    * Función para renderizar el template
    * @param {string} url - La URL del archivo PHP
    */
-  function renderingTemplate(url, location = 'forms') {
+  function renderingTemplate(url, location = 'forms', data = null) {
 
     fetch(url + '.view.php') // Hacer la petición al archivo PHP
       .then(response => response.text()) // Convertir la respuesta a texto
       .then(html => {
         const form = document.getElementById(location);
         form.innerHTML = html; // Inyectar el contenido en el div
+
+        //PROCEDMIENTO PARA  EDITAR EL FORMULARIOA
+        if (data) {
+          // Capturamos el formulario real que se encuentra dentro del contenedor
+          const innerForm = form.querySelector('form');
+
+          if (innerForm) {
+            // Creamos el input oculto con el ID
+            const idInput = document.createElement('input');
+            idInput.type = 'hidden';
+            idInput.name = 'id';
+            idInput.value = data.id;
+
+            // Insertamos al principio del form (o podrías usar appendChild si prefieres al final del form)
+            innerForm.insertBefore(idInput, innerForm.firstChild);
+
+            // Rellenamos los inputs existentes con los datos
+            const inputs = innerForm.querySelectorAll('input');
+            inputs.forEach(input => {
+              if (data.hasOwnProperty(input.name)) {
+                input.value = data[input.name];
+              }
+            });
+          }
+        }
+
 
 
         const scripts = form.querySelectorAll('script');

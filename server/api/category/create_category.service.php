@@ -5,11 +5,19 @@ require_once('../conexion_db.php');
 include('../responses.php');
 
 // Función para crear un provedor
-function createCategory($conn, $name)
+function createCategory($conn, $name, $id)
 {
     try {
-        // Preparar la consulta SQL 
-        $stmt = $conn->prepare("INSERT INTO categories (name) VALUES (?)");
+
+        //!ESTA PASNADO ALGO CON EL BIDNING DE PARAMETROS
+        if ($id != 0) {
+            $id = intval($id); // Asegurarte que sea entero
+            $stmt = $conn->prepare("UPDATE categories SET name = ? WHERE id = ?");
+            $stmt->bind_param("si", $name, $id);
+        } else {
+            $stmt = $conn->prepare("INSERT INTO categories (name) VALUES (?)");
+            $stmt->bind_param("s", $name);
+        }
 
         // Verificar si la preparación de la consulta fue exitosa
         if ($stmt === false) {
@@ -38,5 +46,10 @@ function createCategory($conn, $name)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    echo createCategory($conn, $_POST['name']);
+    if (isset($_POST['id']) && $_POST['id'] != '') {
+        $id = $_POST['id'];
+    } else {
+        $id = 0;
+    }
+    echo createCategory($conn, $_POST['name'], $id);
 }

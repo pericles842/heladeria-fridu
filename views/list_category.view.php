@@ -21,16 +21,20 @@
     .then(response => response.json())
     .then(data => {
       const tbody = document.querySelector('tbody');
-
+      
       tbody.innerHTML = '';
       data.data.forEach(result => {
+        let jsonResult = encodeURIComponent(JSON.stringify(result)); // JSON codificado
         const row = document.createElement('tr');
         row.innerHTML = `
              <th scope="row">${result.id}</th>
              <td>${result.name}</td>
              <td>
                   <button type="button" class="btn btn-danger" onclick="deleteRegistro(${result.id} ,'category')">Eliminar</button>
-                  <button type="button" class="btn btn-primary">Editar</button>
+                  <button  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                   type="button" onclick="renderingTemplate('category', 'formulario-modal',
+                   JSON.parse(decodeURIComponent('${jsonResult}')))"
+                  class="btn btn-primary">Editar</button>
               </td>
            `;
         tbody.appendChild(row);
