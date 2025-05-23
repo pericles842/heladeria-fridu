@@ -23,8 +23,8 @@
         <td></td>
         <td></td>
         <td>
-          <button type="button" class="btn btn-primary">Eliminar</button>
-          <button type="button" class="btn btn-warning">Guardar</button>
+          <button type="button" class="btn btn-danger">Eliminar</button>
+          <button type="button" class="btn btn-primary">Editar</button>
         </td>
       </tr>
     </tbody>

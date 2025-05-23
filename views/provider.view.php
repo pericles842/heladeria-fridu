@@ -14,7 +14,7 @@
       </div>
       <div class="col-6 mb-4">
         <div class="form-floating">
-          <input type="number" class="form-control" name="tel" id="floatingInput" required placeholder="0412345678">
+          <input type="number" class="form-control" name="tel" id="tel" required placeholder="0412345678" pattern="\d{10}">
           <label for="floatingInput">Teléfono</label>
         </div>
       </div>
@@ -30,7 +30,7 @@
       </div>
       <div class="col-6 mb-4">
         <div class="form-floating">
-          <input type="text" class="form-control" name="rif" required id="floatingInput" placeholder="J-12345678">
+          <input type="text" class="form-control" name="rif" id="rif" required placeholder="J-12345678" pattern="^[JVEPG]{1}-\d{8}$">
           <label for="floatingInput">Rif</label>
         </div>
       </div>

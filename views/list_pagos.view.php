@@ -26,6 +26,8 @@
         <td></td>
         <td>
           <button type="button" class="btn btn-success"><i class="bi bi-check-lg"></i></button>
+          <button type="button" class="btn btn-danger"><i class="bi bi-x"></i></button>
+
         </td>
       </tr>
     </tbody>

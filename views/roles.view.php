@@ -15,37 +15,7 @@
 
 
   <div class="accordion my-4" id="accordionExample">
-
-    <!-- permisos -->
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Permisos
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show " data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="rolVer" value="ver">
-            <label class="form-check-label" for="rolVer">Ver</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="rolCrear" value="crear">
-            <label class="form-check-label" for="rolCrear">Crear</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="rolActualizar" value="actualizar">
-            <label class="form-check-label" for="rolActualizar">Actualizar</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="rolEliminar" value="eliminar">
-            <label class="form-check-label" for="rolEliminar">Eliminar</label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+    
     <!-- usuarios -->
     <div class="accordion-item">
       <h2 class="accordion-header">
@@ -270,7 +240,6 @@
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="ReportesActualizar" value="actualizar">
             <label class="form-check-label" for="ReportesActualizar">Actualizar</label>
-          </div>
           </div>
         </div>
       </div>
