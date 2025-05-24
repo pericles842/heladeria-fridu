@@ -13,14 +13,12 @@
     </div>
 
     <div class="d-flex justify-content-end gap-3" style="width: fit-content; margin-left: auto;">
-      <button type="button" onclick="refreshForm()" class="btn btn-danger d-flex align-items-center gap-2">Cancelar</button>
+      <button type="button" class="btn btn-danger d-flex align-items-center gap-2" data-bs-dismiss="modal">Cancelar</button>
       <button type="submit" class="btn btn-success d-flex align-items-center gap-2">Guardar</button>
     </div>
   </form>
 </body>
 <script>
- 
-
   document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -36,8 +34,12 @@
         icon: data.success ? 'success' : 'error'
       });
 
-      if (data.success) refreshForm('category');
-
+      if (data.success) {
+        // Dispatch a custom event to signal list_category.view.php to refresh
+        window.parent.document.dispatchEvent(new Event('categoryAddedOrUpdated'));
+        // Close the modal if it's open (assuming it's in a Bootstrap modal)
+        window.parent.$('#exampleModal').modal('hide');
+      }
     })
   })
 </script>
